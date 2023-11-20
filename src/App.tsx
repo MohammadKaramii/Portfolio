@@ -4,11 +4,16 @@ import { CacheProvider } from '@emotion/react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import createCache from "@emotion/cache"
 import {prefixer} from "stylis"
+import Header from './components/ui/Header'
 import './App.css'
+
 
 function App() {
 const theme = createTheme({
-  direction: "rtl"
+  direction: "rtl",
+  typography: {
+    fontFamily: "vazir, roboto",
+  },
 }
 )
 
@@ -25,9 +30,7 @@ const cacheRtl = createCache({
         <Helmet>
 <title>Mohammad Karami Portfolio</title>
         </Helmet>
-   <div className='App'>
-      
-    </div>
+        <Header />
       </HelmetProvider>
     </ThemeProvider>
    </CacheProvider>
