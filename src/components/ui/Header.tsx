@@ -23,8 +23,8 @@ const Header = () => {
     <>
       <ElevationScroll>
         <AppBar>
-          <Toolbar>
-            <Button>Click</Button>
+          <Toolbar disableGutters>
+            <Button variant="contained" color="secondary">کلیک</Button>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
