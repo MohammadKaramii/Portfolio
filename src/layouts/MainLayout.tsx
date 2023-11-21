@@ -7,7 +7,7 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 
 import Grid from "@mui/material/Unstable_Grid2";
-import { theme } from "./../ui/theme";
+import { theme } from "./theme";
 
 //NOTE Create RTL Cache
 const cacheRTL = createCache({
