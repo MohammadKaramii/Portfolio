@@ -4,8 +4,9 @@ import { devSkills } from "../constants/skills";
 import Grid from "@mui/material/Unstable_Grid2";
 import { DeveloperMode } from "@mui/icons-material";
 import { Typography, Box, Chip, Card } from "@mui/material";
+import { Helmet } from "react-helmet-async";
 
-const Skills = () => {
+const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
   const {
     htmlSkill,
     cssSkill,
@@ -84,8 +85,13 @@ const Skills = () => {
         height: "100vh",
         backgroundColor: "whitesmoke",
         direction: "rtl",
+        overflowY: "scroll",
+        '&::-webkit-scrollbar': {display: "none"}
       }}
     >
+      <Helmet>
+        <title>{helmetTitle}</title>
+      </Helmet>
       <Grid container sx={{ mx: 4 }}>
         <Grid sx={{ width: 1, mt: 1 }}>
           <Box textAlign="left">

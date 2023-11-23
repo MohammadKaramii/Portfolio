@@ -1,12 +1,14 @@
-import HtmlIcon from "../assets/icons/html5-original.svg";
-import CssIcon from "../assets/icons/css3-original.svg";
-import JsIcon from "../assets/icons/javascript-original.svg";
-import ReactIcon from "../assets/icons/react-original.svg";
-import GitIcon from "../assets/icons/git-original.svg";
-import NextJsIcon from "../assets/icons/nextjs-original.svg";
-import ReduxIcon from "../assets/icons/redux-original.svg";
-import MaterialUIIcon from "../assets/icons/material-ui-original.svg";
-import TypeScriptIcon from "../assets/icons/typescript-original.svg";
+import {
+  HtmlIcon,
+  CssIcon,
+  JsIcon,
+  ReactIcon,
+  NextIcon,
+  ReduxIcon,
+  MuiIcon,
+  TsIcon,
+  GitIcon,
+} from "../assets/icons";
 
 export const devSkills = {
   htmlSkill: {
@@ -42,7 +44,7 @@ export const devSkills = {
   nextSkill: {
     id: 5,
     name: "NextJS",
-    icon: NextJsIcon,
+    icon: NextIcon,
     color: "lightPink",
   },
   reduxSkill: {
@@ -54,13 +56,13 @@ export const devSkills = {
   typescriptSkill: {
     id: 7,
     name: "TypeScript",
-    icon: TypeScriptIcon,
+    icon: TsIcon,
     color: "yellow",
   },
   materialuiSkill: {
     id: 8,
     name: "MatreialUI",
-    icon: MaterialUIIcon,
+    icon: MuiIcon,
     color: "success",
   },
 };

@@ -1,4 +1,4 @@
-import { Divider, Chip, Box, Typography, LinearProgress } from "@mui/material";
+import { Divider, Chip, Box, Typography, LinearProgress,  Badge } from "@mui/material";
 import  { FC } from 'react';
 interface SkillProps {
     icon: string;
@@ -31,7 +31,11 @@ const Skill: FC<SkillProps> = ({ icon, color, name, value }) => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Box sx={{ minWidth: 35 }}>
                     <Typography variant="body2" color="purple">
-                        {Math.round(value)}
+                    <Badge
+                            variant="standard"
+                            badgeContent={`${Math.round(value)}%`}
+                            color={color}
+                        />
                     </Typography>
                 </Box>
                 <Box sx={{ width: "100%", mr: 1 }}>

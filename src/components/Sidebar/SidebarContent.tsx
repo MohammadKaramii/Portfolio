@@ -9,6 +9,7 @@ const SidebarContent = () => {
                 justifyContent: "center",
                 textAlign: "center",
                 mt: 2,
+                
             }}
         >
             <SidebarHeader />

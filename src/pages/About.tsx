@@ -8,22 +8,23 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-import { CodeRounded} from "@mui/icons-material";
-
+import { CodeRounded } from "@mui/icons-material";
+import { Helmet } from "react-helmet-async";
 import DevInfo from "./components/DevInfo";
 import avatar from "../../src/assets/wallpaper.jpg";
 
-const About = () => {
-
+const About = ({ helmetTitle } : { helmetTitle: string }) => {
   return (
     <Card
       sx={{
         height: "100vh",
         backgroundColor: "whitesmoke",
         direction: "rtl",
-        
       }}
     >
+      <Helmet>
+        <title>{helmetTitle}</title>
+      </Helmet>
       <CardContent>
         <Grid container sx={{ mx: 3 }}>
           <Grid xs={12} sm={12} md={8} lg={8} xl={8}>
@@ -71,7 +72,6 @@ const About = () => {
             </Avatar>
           </Grid>
         </Grid>
-
       </CardContent>
     </Card>
   );

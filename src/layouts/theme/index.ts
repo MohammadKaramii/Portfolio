@@ -1,19 +1,19 @@
 import { createTheme } from "@mui/material/styles";
-
+import { PaletteColor } from '@mui/material/styles';
 declare module "@mui/material/styles" {
   interface Palette {
-    lilac: any;
-    lightPink: any;
-    yellow: any;
-    blue: any;
-    black: any;
+    lilac: PaletteColor;
+    lightPink: PaletteColor;
+    yellow: PaletteColor;
+    blue: PaletteColor;
+    brown: PaletteColor;
   }
   interface PaletteOptions {
-    lilac: any;
-    lightPink: any;
-    yellow: any;
-    blue: any;
-    brown: any;
+    lilac: PaletteColor;
+    lightPink: PaletteColor;
+    yellow: PaletteColor;
+    blue: PaletteColor;
+    brown: PaletteColor;
   }
 }
 
@@ -74,7 +74,7 @@ export const theme = createTheme({
     }),
   },
   typography: {
-    fontFamily: "vazir, roboto",
+    fontFamily: "tanha, vazir, roboto",
   },
   components: {
     MuiButtonBase: {

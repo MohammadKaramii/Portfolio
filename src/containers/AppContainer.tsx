@@ -1,7 +1,7 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
-
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import MainLayout from "../layouts/MainLayout";
 import { Sidebar } from "../components/Sidebar";
 import PagesContainer from "./PagesContainer";
@@ -12,6 +12,16 @@ import { Home, About, Skills } from "../pages";
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+
+
+  useEffect(() => {
+    if (isMdUp) {
+        setDrawerOpen(false);
+    }
+}, [isMdUp]);
 
   const handlePageNumber = (_event: React.SyntheticEvent, newPage: number) => {
     setPageNumber(newPage);
@@ -26,14 +36,14 @@ function AppContainer() {
           <Sidebar />
         </SidebarContainer>
         <PagesContainer>
-          <Page pageNumber={pageNumber} index={0} >
-          <Home />
+          <Page pageNumber={pageNumber} index={0}>
+            <Home helmetTitle="Mohammad Karami's Portfolio" />
           </Page>
           <Page pageNumber={pageNumber} index={1}>
-          <About />
+            <About helmetTitle="Portfolio | About" />
           </Page>
           <Page pageNumber={pageNumber} index={2}>
-<Skills />
+            <Skills helmetTitle="Portfolio | Skills" />
           </Page>
           <Page pageNumber={pageNumber} index={3}>
             <Typography variant="h5" sx={{ textAlign: "center" }}>
