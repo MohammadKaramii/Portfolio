@@ -8,7 +8,7 @@ const ContentContainer = ({ children }: { children: React.ReactNode }) => {
             md={9}
             lg={10}
             xl={10}
-            sx={{ backgroundColor: "secondary.main" }}
+            sx={{ backgroundColor: "primary.main" }}
         >
             {children}
         </Grid>

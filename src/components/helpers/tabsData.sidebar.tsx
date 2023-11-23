@@ -1,6 +1,6 @@
 import {
     HomeRounded,
-    FaceRounded,
+DeveloperMode,
     TextSnippetRounded,
     TerminalRounded,
     ConnectWithoutContactRounded,
@@ -16,8 +16,8 @@ const tabProps = (index: number) => {
 export const tabsData = () => {
     const tabs = [
         { label: "صفحه اصلی", icon: <HomeRounded />, ...tabProps(0) },
-        { label: "درباره من", icon: <FaceRounded />, ...tabProps(1) },
-        { label: "رزومه من", icon: <TextSnippetRounded />, ...tabProps(2) },
+        { label: "درباره من", icon: <TextSnippetRounded />, ...tabProps(1) },
+        { label: "مهارت های من", icon: <DeveloperMode />, ...tabProps(2) },
         { label: "نمونه کارها", icon: <TerminalRounded />, ...tabProps(3) },
         {
             label: "ارتباط با من",
