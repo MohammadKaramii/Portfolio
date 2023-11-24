@@ -37,7 +37,7 @@ declare module "@mui/material/Chip" {
 }
 //NOTE Create Custom Theme
 const { palette } = createTheme();
-export const theme = createTheme({
+export const darkTheme = createTheme({
   direction: "rtl",
   palette: {
     mode: "dark",
@@ -70,6 +70,53 @@ export const theme = createTheme({
     brown: palette.augmentColor({
       color: {
         main: "#ca6702",
+      },
+    }),
+  },
+  typography: {
+    fontFamily: "tanha, vazir, roboto",
+  },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
+});
+export const lightTheme = createTheme({
+  direction: "rtl",
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#9d1a1a",
+    },
+    secondary: {
+      main: "#868686",
+    },
+    lilac: palette.augmentColor({
+      color: {
+        main: "#4a5fff",
+      },
+    }),
+    yellow: palette.augmentColor({
+      color: {
+        main: "#deb405",
+      },
+    }),
+    lightPink: palette.augmentColor({
+      color: {
+        main: "#ff84b3",
+      },
+    }),
+    blue: palette.augmentColor({
+      color: {
+        main: "#006d91",
+      },
+    }),
+    brown: palette.augmentColor({
+      color: {
+        main: "#934b01",
       },
     }),
   },

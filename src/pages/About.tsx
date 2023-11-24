@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import {
   Typography,
   Card,
@@ -12,14 +13,33 @@ import { CodeRounded } from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
 import DevInfo from "./components/DevInfo";
 import avatar from "../../src/assets/wallpaper.jpg";
+import { CustomDivider } from "../components/common";
+import {
+  SchoolRounded,
+} from "@mui/icons-material";
+import  DevEduTimeline  from "../pages/components/DevEduTimeline";
 
 const About = ({ helmetTitle } : { helmetTitle: string }) => {
+ 
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+
+      return () => {
+          setLoading(false);
+      };
+  }, []);
+ 
+ 
   return (
     <Card
       sx={{
         height: "100vh",
         backgroundColor: "whitesmoke",
         direction: "rtl",
+        overflowY: "auto",
+        '&::-webkit-scrollbar': {display: "none"}
       }}
     >
       <Helmet>
@@ -72,6 +92,21 @@ const About = ({ helmetTitle } : { helmetTitle: string }) => {
             </Avatar>
           </Grid>
         </Grid>
+                <Grid container sx={{ mt: 4 }}>
+                    <Grid xs={12} >
+                        <CustomDivider
+                            bColor="primary.main"
+                            cColor="primary"
+                            icon={<SchoolRounded />}
+                            align="center"
+                            text="تحصیلات"
+  
+                          
+                        />
+
+                        <DevEduTimeline loading={loading} />
+                    </Grid>
+                </Grid>
       </CardContent>
     </Card>
   );

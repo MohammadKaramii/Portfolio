@@ -4,10 +4,13 @@ import userImg from "../../assets/user.jpg";
 import { RandomReveal } from "react-random-reveal";
 import { alphabetPersian } from "../../constants/alphabetPersian";
 import SocialMediaIcons from "../SocialMediaIcons";
+import ThemeActionButton from "../ThemeActionButton";
+
 const SidebarHeader = () => {
   const [start, setStart] = useState(false);
   return (
     <>
+    <ThemeActionButton />
       <Avatar
         src={userImg}
         variant="rounded"

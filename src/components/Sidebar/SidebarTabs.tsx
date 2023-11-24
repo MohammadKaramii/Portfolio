@@ -2,16 +2,15 @@ import { useContext } from "react";
 
 import { Tabs, Tab } from "@mui/material";
 import { grey } from "@mui/material/colors";
-
+import { useTheme } from "@mui/material/styles";
 import MainContext from "../../context";
 import { tabsData } from "../helpers/tabsData.sidebar";
 
 const SidebarTabs = () => {
-    const { pageNumber, handlePageNumber, setDrawerOpen } =
-        useContext(MainContext);
-
+    const { pageNumber, handlePageNumber, setDrawerOpen } = useContext(MainContext);
+    const theme = useTheme();
     const data = tabsData();
-
+    
     return (
         <Tabs
             orientation="vertical"
@@ -20,6 +19,10 @@ const SidebarTabs = () => {
             allowScrollButtonsMobile
             value={pageNumber}
             onChange={handlePageNumber}
+            indicatorColor={
+                theme.palette.mode === "dark" ? "secondary" : "primary"
+            }
+    
         >
             {data.map((tab, index) => (
                 <Tab
@@ -28,7 +31,11 @@ const SidebarTabs = () => {
                     icon={tab.icon}
                     iconPosition="start"
                     sx={{
-                        backgroundColor: grey[800],
+                        backgroundColor:
+                        theme.palette.mode === "dark"
+                            ? grey[800]
+                            : grey[500],
+                    color: "text.primary",
                         borderRadius: 2,
                         mx: 1,
                         mt: 3,

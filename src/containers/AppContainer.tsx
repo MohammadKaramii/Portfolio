@@ -12,10 +12,14 @@ import { Home, About, Skills } from "../pages";
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
-
+  const [mode, setMode] = useState<string>("");
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
+  useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+}, []);
 
   useEffect(() => {
     if (isMdUp) {
@@ -23,15 +27,18 @@ function AppContainer() {
     }
 }, [isMdUp]);
 
+const handleThemeChange = () => {
+  setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+};
   const handlePageNumber = (_event: React.SyntheticEvent, newPage: number) => {
     setPageNumber(newPage);
   };
 
   return (
     <MainContext.Provider
-      value={{ pageNumber, handlePageNumber, drawerOpen, setDrawerOpen }}
+      value={{ pageNumber, handlePageNumber, drawerOpen, setDrawerOpen,handleThemeChange, }}
     >
-      <MainLayout>
+      <MainLayout mode={mode}>
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>

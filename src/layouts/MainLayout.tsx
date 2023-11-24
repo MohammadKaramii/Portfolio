@@ -7,7 +7,7 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 
 import Grid from "@mui/material/Unstable_Grid2";
-import { theme } from "./theme";
+import { lightTheme, darkTheme } from "./theme";
 
 //NOTE Create RTL Cache
 const cacheRTL = createCache({
@@ -15,7 +15,8 @@ const cacheRTL = createCache({
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children, mode }: { children: React.ReactNode, mode: string }) => {
+  const theme = mode === "dark" ? darkTheme : lightTheme;
   return (
     <CacheProvider value={cacheRTL}>
       <ThemeProvider theme={theme}>
