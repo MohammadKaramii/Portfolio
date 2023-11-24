@@ -11,8 +11,10 @@ const DrawerActionButton = () => {
 
     return (
         <Box
-            sx={{
-                display: {
+       
+        sx={{
+            position: "absolute",
+            display: {
                     xs: "block",
                     sm: "block",
                     md: "none",

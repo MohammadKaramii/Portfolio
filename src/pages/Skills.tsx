@@ -96,7 +96,7 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
         <Grid sx={{ width: 1, mt: 1 }}>
           <Box textAlign="left">
             <Chip
-              color="primary"
+              color= {"yellow" as any}
               icon={<DeveloperMode />}
               label={
                 <Typography

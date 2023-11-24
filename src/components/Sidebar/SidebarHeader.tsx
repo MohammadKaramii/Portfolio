@@ -10,7 +10,7 @@ const SidebarHeader = () => {
   const [start, setStart] = useState(false);
   return (
     <>
-    <ThemeActionButton />
+    
       <Avatar
         src={userImg}
         variant="rounded"
@@ -19,7 +19,8 @@ const SidebarHeader = () => {
           width: 200,
 
           borderRadius: 2,
-          margin: "0 auto",
+          marginTop: 4,
+          marginX: "auto",
           display: {
             xl: "block",
             lg: "block",
@@ -51,6 +52,7 @@ const SidebarHeader = () => {
       </Typography>
       )}
       <SocialMediaIcons />
+      <ThemeActionButton />
     </>
   );
 };

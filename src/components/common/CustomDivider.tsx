@@ -1,8 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactElement } from "react";
 
 import { Divider, Chip, Typography, Slide } from "@mui/material";
 
-const CustomDivider = ({ bColor, cColor, icon, align, text }: any) => {
+
+interface DivderProps{
+    bColor : any;
+    cColor : any;
+    icon: ReactElement;
+    align: "center" | "left" | "right" | undefined;
+    text: string;
+}
+
+
+
+
+
+const CustomDivider = ({ bColor, cColor, icon, align, text }: DivderProps) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

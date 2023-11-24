@@ -8,7 +8,8 @@ import PagesContainer from "./PagesContainer";
 import Page from "../pages/components/Page";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
-import { Home, About, Skills } from "../pages";
+import { Home, About, Skills, Projects } from "../pages";
+import Contact from "../pages/Contact";
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -54,12 +55,12 @@ const handleThemeChange = () => {
           </Page>
           <Page pageNumber={pageNumber} index={3}>
             <Typography variant="h5" sx={{ textAlign: "center" }}>
-              نمونه کارها
+            <Projects helmetTitle="Projects | Skills" />
             </Typography>
           </Page>
           <Page pageNumber={pageNumber} index={4}>
             <Typography variant="h5" sx={{ textAlign: "center" }}>
-              ارتباط با من
+            <Contact helmetTitle="Portfolio | Contact" />
             </Typography>
           </Page>
         </PagesContainer>
