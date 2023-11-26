@@ -1,58 +1,48 @@
-import { useState } from "react";
-import { Avatar, Typography } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Typography } from "@mui/material";
 import userImg from "../../assets/user.jpg";
 import { RandomReveal } from "react-random-reveal";
 import { alphabetPersian } from "../../constants/alphabetPersian";
 import SocialMediaIcons from "../SocialMediaIcons";
-import ThemeActionButton from "../ThemeActionButton";
+
+import { CustomAvatar } from "../common";
+import useTranslationSetup from "./../../hooks/useTranslationSetup";
 
 const SidebarHeader = () => {
+  const { t, language, i18n } = useTranslationSetup();
   const [start, setStart] = useState(false);
+
+  const [languageKey, setLanguageKey] = useState(language);
+
+  useEffect(() => {
+    setStart(true);
+    setLanguageKey(language);
+  }, [language, i18n]);
+
   return (
     <>
-    
-      <Avatar
-        src={userImg}
-        variant="rounded"
-        sx={{
-          height: 200,
-          width: 200,
-
-          borderRadius: 2,
-          marginTop: 4,
-          marginX: "auto",
-          display: {
-            xl: "block",
-            lg: "block",
-            md: "block",
-            sm: "none",
-            xs: "none",
-          },
-        }}
-      >
-        MK
-      </Avatar>
+      <CustomAvatar avatar={userImg} size={200} fallback="MK" />
       <Typography variant="h6" color="primary">
         <RandomReveal
+          key={languageKey}
           isPlaying
           duration={3}
-          characterSet={alphabetPersian}
-          characters="محمد کرمی"
-          onComplete={() => setStart(true)}
+          characterSet={languageKey === "fa"  ? alphabetPersian : undefined}
+          characters={t("name")}
         />
       </Typography>
       {start && (
-      <Typography variant="caption" color="whitesmoke">
-        <RandomReveal
-          isPlaying
-          duration={3}
-          characterSet={alphabetPersian}
-          characters="توسعه دهنده فرانت اند"
-        />
-      </Typography>
+        <Typography variant="caption" color="whitesmoke">
+          <RandomReveal
+            key={languageKey}
+            isPlaying
+            duration={3}
+            characterSet={languageKey === "fa"  ? alphabetPersian : undefined}
+            characters={t("description")}
+          />
+        </Typography>
       )}
       <SocialMediaIcons />
-      <ThemeActionButton />
     </>
   );
 };

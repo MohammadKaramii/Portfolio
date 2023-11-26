@@ -1,19 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 
 import { Typography, Card, CardContent, Slide } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { AccountCircle } from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
-
 import { CustomDivider } from "../components/common";
 import worldMap from "../assets/map.svg";
-import ContactForm from "../pages/components/ContactForm";
+import ContactForm from "../components/pages/ContactForm";
+import useTranslationSetup from "./../hooks/useTranslationSetup";
 
 const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslationSetup();
 
   useEffect(() => {
     setLoading(true);
+
 
     return () => {
       setLoading(false);
@@ -29,7 +31,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
         display: "flex",
         flexDirection: "column",
         direction: "rtl",
-        '&::-webkit-scrollbar': {display: "none"}
+        "&::-webkit-scrollbar": { display: "none" },
       }}
     >
       <Helmet>
@@ -41,7 +43,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
           cColor="error"
           icon={<AccountCircle />}
           align="center"
-          text="ارتباط با من"
+          text={t("contact")}
         />
 
         <Grid container sx={{ mt: 5 }}>
@@ -94,7 +96,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
                   fontSize: "25px",
                 }}
               >
-                ارسال{" "}
+                {t("send")}{" "}
                 <a
                   href="mailto:karamiwp@gmail.com"
                   style={{
@@ -103,7 +105,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
                     textDecoration: "none",
                   }}
                 >
-                  ایمیل
+                  {t("email")}
                 </a>
               </Typography>
             </Grid>

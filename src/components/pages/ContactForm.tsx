@@ -16,13 +16,12 @@ import {
   SubjectRounded,
   EmailRounded,
 } from "@mui/icons-material";
-
-import { contactValidationSchema } from "../../validations/contactValidation";
+import useTranslationSetup from "./../../hooks/useTranslationSetup";
+import * as Yup from "yup";
 
 
 const ContactForm = () => {
-  
-  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY
+  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
   const theme = useTheme();
   const contactInputNames = {
     fullname: "",
@@ -32,14 +31,24 @@ const ContactForm = () => {
     recaptcha: "",
   };
 
+  const { t } = useTranslationSetup();
+  
   const formik = useFormik({
     initialValues: contactInputNames,
     onSubmit: (values) => {
       console.log("Form Values: ", values);
     },
-    validationSchema: contactValidationSchema,
+    validationSchema: 
+    Yup.object().shape({
+      fullname: Yup.string().required(t("name-req")),
+      email: Yup.string()
+          .email(t("email.valid"))
+          .required(t("email-req")),
+      subject: Yup.string().required(t("title-req")),
+      message: Yup.string().required(t("message-req")),
+      recaptcha: Yup.string().required(t("captcha-req")),
+  })
   });
-
 
   return (
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
@@ -51,7 +60,7 @@ const ContactForm = () => {
                 fullWidth
                 size="small"
                 color="warning"
-                label="نام و نام خانوادگی"
+                label={t("nameForm")}
                 name="fullname"
                 variant="outlined"
                 helperText={
@@ -76,7 +85,7 @@ const ContactForm = () => {
                 fullWidth
                 size="small"
                 color="warning"
-                label="آدرس ایمیل"
+                label={t("email")}
                 name="email"
                 variant="outlined"
                 helperText={formik.touched.email ? formik.errors.email : null}
@@ -97,7 +106,7 @@ const ContactForm = () => {
                 fullWidth
                 size="small"
                 color="warning"
-                label="عنوان"
+                label={t("title")}
                 name="subject"
                 variant="outlined"
                 helperText={
@@ -122,7 +131,7 @@ const ContactForm = () => {
                 rows={6}
                 size="small"
                 color="warning"
-                label="متن پیام"
+                label={t("message")}
                 name="message"
                 variant="outlined"
                 helperText={
@@ -143,16 +152,15 @@ const ContactForm = () => {
           flexDirection: "column",
         }}
       >
-        <Box sx={{m:0.75}}>
-        
-        <ReCAPTCHA
-          sitekey={siteKey}
-          theme={theme.palette.mode}
-          hl="fa"
-          onChange={(value) => {
-            formik.setFieldValue("recaptcha", value);
-          }}
-        />
+        <Box sx={{ m: 0.75 }}>
+          <ReCAPTCHA
+            sitekey={siteKey}
+            theme={theme.palette.mode}
+            hl="fa"
+            onChange={(value) => {
+              formik.setFieldValue("recaptcha", value);
+            }}
+          />
         </Box>
         {formik.errors.recaptcha && formik.touched.recaptcha && (
           <Typography variant="caption" color="error">
@@ -166,7 +174,7 @@ const ContactForm = () => {
           sx={{ mt: 2 }}
           fullWidth
         >
-          ارسال کن
+          {t("send")}
         </Button>
       </CardActions>
     </form>

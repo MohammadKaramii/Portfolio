@@ -16,6 +16,9 @@ const cacheRTL = createCache({
 });
 
 const MainLayout = ({ children, mode }: { children: React.ReactNode, mode: string }) => {
+  
+  
+  
   const theme = mode === "dark" ? darkTheme : lightTheme;
   return (
     <CacheProvider value={cacheRTL}>

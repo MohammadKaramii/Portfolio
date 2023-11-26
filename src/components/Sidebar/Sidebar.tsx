@@ -6,7 +6,7 @@ const Sidebar = () => {
         <>
             <DrawerActionButton />
 
-            <SidebarContent />
+            <SidebarContent  />
 
             <SidebarDrawer />
         </>

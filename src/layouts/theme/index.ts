@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import { PaletteColor } from '@mui/material/styles';
+
 declare module "@mui/material/styles" {
   interface Palette {
     lilac: PaletteColor;
@@ -39,6 +40,7 @@ declare module "@mui/material/Chip" {
 const { palette } = createTheme();
 export const darkTheme = createTheme({
   direction: "rtl",
+  
   palette: {
     mode: "dark",
     primary: {
@@ -83,7 +85,10 @@ export const darkTheme = createTheme({
       },
     },
   },
-});
+
+},
+
+);
 export const lightTheme = createTheme({
   direction: "rtl",
   palette: {
@@ -123,6 +128,7 @@ export const lightTheme = createTheme({
   typography: {
     fontFamily: "tanha, vazir, roboto",
   },
+
   components: {
     MuiButtonBase: {
       defaultProps: {

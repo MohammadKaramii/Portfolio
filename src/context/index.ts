@@ -6,5 +6,7 @@ export default createContext({
     handleThemeChange: () => {},
     drawerOpen: false,
     setDrawerOpen: (_isOpen : boolean )=> {},
+    language: "fa",
+    handleChangeLanguage: (_language: string) => {},
 });
 

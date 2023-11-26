@@ -2,16 +2,20 @@ import { useEffect, useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import Typed from "typed.js";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
-const Home = ({ helmetTitle } : { helmetTitle: string }) => {
-  const nameEl = useRef(null);
-  const infoEl = useRef(null);
 
-  const strings = ["من یک توسعه دهنده فرانت اند هستم"];
+
+const Home = ({ helmetTitle }: { helmetTitle: string }) => {
+  const nameEl = useRef<any>(null);
+  const infoEl = useRef<any>(null);
+  const { i18n } = useTranslation();
+
+  
 
   useEffect(() => {
     const typedName = new Typed(nameEl.current, {
-      strings: ["محمد کرمی"],
+      strings: [i18n.t("name")],
       typeSpeed: 50,
       backSpeed: 20,
       backDelay: 10,
@@ -19,7 +23,7 @@ const Home = ({ helmetTitle } : { helmetTitle: string }) => {
     });
 
     const typedInfo = new Typed(infoEl.current, {
-      strings: strings,
+      strings: [i18n.t("home-interduce")],
       startDelay: 1500,
       typeSpeed: 80,
       backSpeed: 50,
@@ -29,10 +33,11 @@ const Home = ({ helmetTitle } : { helmetTitle: string }) => {
     });
 
     return () => {
-      typedName.destroy();
+      typedName.destroy()
       typedInfo.destroy();
     };
-  }, []);
+  }, [i18n.language]);
+
 
   return (
     <Box

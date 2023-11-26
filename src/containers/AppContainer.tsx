@@ -5,11 +5,15 @@ import { useTheme } from "@mui/material/styles";
 import MainLayout from "../layouts/MainLayout";
 import { Sidebar } from "../components/Sidebar";
 import PagesContainer from "./PagesContainer";
-import Page from "../pages/components/Page";
+import Page from "../components/pages/Page";
 import SidebarContainer from "./SidebarContainer";
 import MainContext from "../context";
-import { Home, About, Skills, Projects } from "../pages";
-import Contact from "../pages/Contact";
+import { Home, About, Skills, Projects, Contact } from "../pages";
+import useTranslationSetup from "../hooks/useTranslationSetup";
+
+
+
+
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -17,27 +21,41 @@ function AppContainer() {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
+  const [language, setLanguage] = useState("fa");
+  const { t } = useTranslationSetup();
   useEffect(() => {
     setMode(prefersDarkMode ? "dark" : "light");
-}, []);
+  }, []);
 
   useEffect(() => {
     if (isMdUp) {
-        setDrawerOpen(false);
+      setDrawerOpen(false);
     }
-}, [isMdUp]);
+  }, [isMdUp]);
 
-const handleThemeChange = () => {
-  setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-};
+  const handleThemeChange = () => {
+    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  };
   const handlePageNumber = (_event: React.SyntheticEvent, newPage: number) => {
     setPageNumber(newPage);
   };
 
+  const handleChangeLanguage = () => {
+    setLanguage((prevLang) => (prevLang === "fa" ? "en" : "fa"))
+  };
+
+
   return (
     <MainContext.Provider
-      value={{ pageNumber, handlePageNumber, drawerOpen, setDrawerOpen,handleThemeChange, }}
+      value={{
+        pageNumber,
+        handlePageNumber,
+        drawerOpen,
+        setDrawerOpen,
+        handleThemeChange,
+        handleChangeLanguage, 
+        language
+      }}
     >
       <MainLayout mode={mode}>
         <SidebarContainer>
@@ -45,22 +63,22 @@ const handleThemeChange = () => {
         </SidebarContainer>
         <PagesContainer>
           <Page pageNumber={pageNumber} index={0}>
-            <Home helmetTitle="Mohammad Karami's Portfolio" />
+            <Home helmetTitle={t("home-title")} />
           </Page>
           <Page pageNumber={pageNumber} index={1}>
-            <About helmetTitle="Portfolio | About" />
+            <About helmetTitle={t("about-title")} />
           </Page>
           <Page pageNumber={pageNumber} index={2}>
-            <Skills helmetTitle="Portfolio | Skills" />
+            <Skills helmetTitle={t("skills-title")} />
           </Page>
           <Page pageNumber={pageNumber} index={3}>
             <Typography variant="h5" sx={{ textAlign: "center" }}>
-            <Projects helmetTitle="Projects | Skills" />
+              <Projects helmetTitle={t("project-title")} />
             </Typography>
           </Page>
           <Page pageNumber={pageNumber} index={4}>
             <Typography variant="h5" sx={{ textAlign: "center" }}>
-            <Contact helmetTitle="Portfolio | Contact" />
+              <Contact helmetTitle={t("contact-title")} />
             </Typography>
           </Page>
         </PagesContainer>
@@ -69,4 +87,4 @@ const handleThemeChange = () => {
   );
 }
 
-export default AppContainer;
+export default AppContainer

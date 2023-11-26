@@ -9,10 +9,26 @@ import {
     TimelineConnector,
 } from "@mui/lab";
 import { SchoolRounded } from "@mui/icons-material";
-
-import { devEdu } from "../../constants/details";
+import useTranslationSetup from "./../../hooks/useTranslationSetup";
 
 const DevEduTimeline = ({ loading }: {loading : boolean}) => {
+     const { t } = useTranslationSetup();
+      const devEdu = [
+        {
+          year: t("year-highSchool"),
+          cert: t("highSchool"),
+          major: t("major-highSchool"),
+          place: t("place-highSchool"),
+        },
+        {
+          year: t("year-uni"),
+          cert: t("uni"),
+          major: t("major-uni"),
+          place: t("place-uni"),
+        },
+      ];
+   
+   
     return (
         <Timeline  sx={{ direction: "ltr" }}>
             {devEdu.map((item, index) => (

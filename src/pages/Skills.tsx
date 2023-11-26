@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import Skill from "./components/Skill";
+import Skill from "../components/pages/Skill";
 import { devSkills } from "../constants/skills";
 import Grid from "@mui/material/Unstable_Grid2";
 import { DeveloperMode } from "@mui/icons-material";
 import { Typography, Box, Chip, Card } from "@mui/material";
 import { Helmet } from "react-helmet-async";
+import useTranslationSetup from "./../hooks/useTranslationSetup";
 
-const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
+const Skills = ({ helmetTitle }: { helmetTitle: string }) => {
   const {
     htmlSkill,
     cssSkill,
@@ -28,6 +29,8 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
   const [redux, setRedux] = useState(0);
   const [typescript, setTypescript] = useState(0);
   const [mui, setMui] = useState(0);
+  const { t } = useTranslationSetup();
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -86,7 +89,7 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
         backgroundColor: "whitesmoke",
         direction: "rtl",
         overflowY: "scroll",
-        '&::-webkit-scrollbar': {display: "none"}
+        "&::-webkit-scrollbar": { display: "none" },
       }}
     >
       <Helmet>
@@ -96,7 +99,7 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
         <Grid sx={{ width: 1, mt: 1 }}>
           <Box textAlign="left">
             <Chip
-              color= {"yellow" as any}
+              color={"yellow" as any}
               icon={<DeveloperMode />}
               label={
                 <Typography
@@ -104,7 +107,7 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
                   color="black"
                   sx={{ textAlign: "center" }}
                 >
-                  مهارت های من
+                  {t("skills")}
                 </Typography>
               }
               sx={{
@@ -180,4 +183,3 @@ const Skills = ({ helmetTitle } : { helmetTitle: string }) => {
 };
 
 export default Skills;
-

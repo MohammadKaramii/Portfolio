@@ -11,10 +11,27 @@ import {
 } from "@mui/material";
 import LinesEllipsis from 'react-lines-ellipsis'
 import Grid from "@mui/material/Unstable_Grid2";
+import useTranslationSetup from "./../../hooks/useTranslationSetup";
+import {
+    Twitter, 
+    } from "../../assets/Projects";
 
-import { projects } from "../../constants/projects.ts";
+
 
 const ShowProjects = ({ loading }: { loading: boolean }) => {
+   
+    const { t } = useTranslationSetup();
+  
+    const projects = [
+        {
+            title: `${t("title-twitter")}`,
+            image: Twitter,
+            link: "https://twitter-clone2023.vercel.app/",
+            info: `${t("info-twitter")}`,
+        },
+    ];
+
+    
     return (
         <>
             {projects.map((project, index) => (
@@ -84,7 +101,7 @@ const ShowProjects = ({ loading }: { loading: boolean }) => {
                                     color="warning"
                                     target="_blank"
                                 >
-                                    مشاهده دمو
+            {t("view")}
                                 </Button>
                             </CardActions>
                         </Card>
