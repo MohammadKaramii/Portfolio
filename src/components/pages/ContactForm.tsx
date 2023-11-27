@@ -31,7 +31,7 @@ const ContactForm = () => {
     recaptcha: "",
   };
 
-  const { t } = useTranslationSetup();
+  const { t, language } = useTranslationSetup();
   
   const formik = useFormik({
     initialValues: contactInputNames,
@@ -54,10 +54,11 @@ const ContactForm = () => {
     <form autoComplete="off" onSubmit={formik.handleSubmit}>
       <CardContent>
         <Grid container>
-          <Grid xs={12} sx={{ direction: "ltr" }}>
+          <Grid xs={12} >
             <Grid container spacing={5}>
               <TextField
                 fullWidth
+
                 size="small"
                 color="warning"
                 label={t("nameForm")}
@@ -154,12 +155,14 @@ const ContactForm = () => {
       >
         <Box sx={{ m: 0.75 }}>
           <ReCAPTCHA
+            key={language}
             sitekey={siteKey}
             theme={theme.palette.mode}
-            hl="fa"
+            hl= { language === "fa" ? "fa" : "en"}
             onChange={(value) => {
               formik.setFieldValue("recaptcha", value);
             }}
+         
           />
         </Box>
         {formik.errors.recaptcha && formik.touched.recaptcha && (

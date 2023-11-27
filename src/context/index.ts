@@ -8,5 +8,7 @@ export default createContext({
     setDrawerOpen: (_isOpen : boolean )=> {},
     language: "fa",
     handleChangeLanguage: (_language: string) => {},
+    direction:"rtl"
+    
 });
 

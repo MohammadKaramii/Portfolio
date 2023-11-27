@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, Direction } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import MainLayout from "../layouts/MainLayout";
 import { Sidebar } from "../components/Sidebar";
@@ -14,6 +14,7 @@ import useTranslationSetup from "../hooks/useTranslationSetup";
 
 
 
+
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -22,6 +23,7 @@ function AppContainer() {
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [language, setLanguage] = useState("fa");
+  const [direction, setDirection] = useState<Direction>("rtl" as Direction);
   const { t } = useTranslationSetup();
   useEffect(() => {
     setMode(prefersDarkMode ? "dark" : "light");
@@ -42,7 +44,12 @@ function AppContainer() {
 
   const handleChangeLanguage = () => {
     setLanguage((prevLang) => (prevLang === "fa" ? "en" : "fa"))
+    setDirection(language === "fa" ? "ltr" : "rtl");
   };
+
+  useEffect(() => {
+    document.dir = direction;
+  }, [direction]);
 
 
   return (
@@ -54,10 +61,12 @@ function AppContainer() {
         setDrawerOpen,
         handleThemeChange,
         handleChangeLanguage, 
-        language
+        language,
+        direction
       }}
     >
       <MainLayout mode={mode}>
+     
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>

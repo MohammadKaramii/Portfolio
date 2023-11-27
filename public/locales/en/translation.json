@@ -6,7 +6,7 @@
   "skills": "My Skills",
   "examples": "My Projects",
   "contact": "Contact with Me",
-  "nameForm": "First Name and Last Name",
+  "nameForm": "Name",
   "email": "Email",
   "title": "Title",
   "message": "Message text",
@@ -43,5 +43,4 @@
   "skills-title": "Portfolio | Skills",
   "contact-title": "Portfolio | Contact",
   "project-title": "Portfolio | Projects"
-
 }

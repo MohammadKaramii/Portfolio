@@ -30,7 +30,6 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
         overflowY: "scroll",
         display: "flex",
         flexDirection: "column",
-        direction: "rtl",
         "&::-webkit-scrollbar": { display: "none" },
       }}
     >
@@ -87,7 +86,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
                 variant="body1"
                 color="black"
                 sx={{
-                  mt: 20,
+                  mt: 30,
                   display: {
                     xs: "none",
                     sm: "none",

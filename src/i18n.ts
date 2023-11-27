@@ -9,6 +9,8 @@ i18n
   .init({
     debug: true,
     fallbackLng: 'fa',
+
+    
   });
 
 

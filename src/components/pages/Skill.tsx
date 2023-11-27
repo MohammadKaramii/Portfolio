@@ -1,5 +1,7 @@
 import { Divider, Chip, Box, Typography, LinearProgress,  Badge } from "@mui/material";
-import  { FC } from 'react';
+import  { FC, useContext } from 'react';
+import MainContext from "../../context";
+
 interface SkillProps {
     icon: string;
     color: any
@@ -7,7 +9,11 @@ interface SkillProps {
     value: number;
   }
 
-const Skill: FC<SkillProps> = ({ icon, color, name, value }) => {
+
+
+  const Skill: FC<SkillProps> = ({ icon, color, name, value }) => {
+    const { direction } = useContext(MainContext);
+    
     return (
         <>
             <Divider
@@ -46,7 +52,9 @@ const Skill: FC<SkillProps> = ({ icon, color, name, value }) => {
                         sx={{
                             height: 10,
                             borderRadius: 2,
+                            transform: `${direction === "ltr" ? "rotateY(180deg)" : ""}`,
                         }}
+                       
                     />
                 </Box>
             </Box>
