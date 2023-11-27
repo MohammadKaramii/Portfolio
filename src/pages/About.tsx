@@ -5,7 +5,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { CodeRounded } from "@mui/icons-material";
 import { Helmet } from "react-helmet-async";
 import DevInfo from "../components/pages/DevInfo";
-import avatar from "../../src/assets/wallpaper.jpg";
+import avatar from "../../src/assets/person.jpg";
 import { CustomAvatar, CustomDivider } from "../components/common";
 import { SchoolRounded } from "@mui/icons-material";
 import DevEduTimeline from "../components/pages/DevEduTimeline";
