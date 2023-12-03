@@ -1,16 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import Typed from "typed.js";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 
-
+import MainContext from "../context/index"
 
 const Home = ({ helmetTitle }: { helmetTitle: string }) => {
   const nameEl = useRef<any>(null);
   const infoEl = useRef<any>(null);
   const { i18n } = useTranslation();
-
+  const { mode } = useContext(MainContext);
   
 
   useEffect(() => {
@@ -54,12 +54,12 @@ const Home = ({ helmetTitle }: { helmetTitle: string }) => {
       <Helmet>
         <title>{helmetTitle}</title>
       </Helmet>
-      <Typography ref={nameEl} variant="h3" color="black"></Typography>
+      <Typography ref={nameEl} variant="h3" color={mode === "dark" ? "black" : "white"}></Typography>
       <Typography
         ref={infoEl}
         variant="h4"
-        color="whitesmoke"
-        sx={{ my: 3 }}
+        color={mode === "dark" ? "white" : "black"}
+        sx={{ my: 3, textAlign: "center", px: 2}}
       ></Typography>
     </Box>
   );

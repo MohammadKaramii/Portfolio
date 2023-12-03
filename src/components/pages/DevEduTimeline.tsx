@@ -1,5 +1,5 @@
 import { Slide, Typography } from "@mui/material";
-
+import MainContext from "./../../context"; 
 import {
     Timeline,
     TimelineItem,
@@ -10,9 +10,11 @@ import {
 } from "@mui/lab";
 import { SchoolRounded } from "@mui/icons-material";
 import useTranslationSetup from "./../../hooks/useTranslationSetup";
-
+import { useContext } from "react";
+import { grey } from "@mui/material/colors";
 const DevEduTimeline = ({ loading }: {loading : boolean}) => {
      const { t } = useTranslationSetup();
+     const { mode } = useContext(MainContext);
       const devEdu = [
         {
           year: t("year-highSchool"),
@@ -48,16 +50,16 @@ const DevEduTimeline = ({ loading }: {loading : boolean}) => {
                             {index !== 3 ? <TimelineConnector /> : null}
                         </TimelineSeparator>
                         <TimelineContent>
-                            <Typography variant="caption" color="gray">
+                            <Typography variant="caption" color={mode === "dark" ? grey[400] : grey[600]}>
                                 {item.year}
                             </Typography>
-                            <Typography variant="body1" color="black">
+                            <Typography variant="body1" color={mode === "dark" ? "white" : "black"}>
                                 {item.cert}
                             </Typography>
-                            <Typography variant="body2" color="black">
+                            <Typography variant="body2" color={mode === "dark" ? "white" : "black"}>
                                 {item.major}
                             </Typography>
-                            <Typography variant="body2" color="black">
+                            <Typography variant="body2" color={mode === "dark" ? "white" : "black"}>
                                 {item.place}
                             </Typography>
                         </TimelineContent>

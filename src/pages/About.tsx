@@ -1,19 +1,20 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, useContext} from "react";
 import { Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-
-import { CodeRounded } from "@mui/icons-material";
+import MainContext from "../context";
 import { Helmet } from "react-helmet-async";
 import DevInfo from "../components/pages/DevInfo";
 import avatar from "../../src/assets/person.jpg";
 import { CustomAvatar, CustomDivider } from "../components/common";
-import { SchoolRounded } from "@mui/icons-material";
+import { SchoolRounded, CodeRounded  } from "@mui/icons-material";
 import DevEduTimeline from "../components/pages/DevEduTimeline";
 import useTranslationSetup from "./../hooks/useTranslationSetup";
 
 
 const About = ({ helmetTitle }: { helmetTitle: string }) => {
   const [loading, setLoading] = useState(false);
+  
+  const { mode } = useContext(MainContext);
   const { t } = useTranslationSetup();
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const About = ({ helmetTitle }: { helmetTitle: string }) => {
     <Card
       sx={{
         height: "100vh",
-        backgroundColor: "whitesmoke",
+        backgroundColor:  `${mode === "dark" ? "black" : "white"}`,
         direction: "rtl",
         overflowY: "auto",
         "&::-webkit-scrollbar": { display: "none" },
@@ -44,7 +45,7 @@ const About = ({ helmetTitle }: { helmetTitle: string }) => {
             <CustomDivider
               bColor="primary.main"
               cColor="primary"
-              icon={<CodeRounded />}
+              icon={<CodeRounded sx={{fill: `${mode === "dark" ? "white" : "black"}`}} />}
               align="right"
               text={t("description")}
             />
@@ -62,12 +63,12 @@ const About = ({ helmetTitle }: { helmetTitle: string }) => {
             <CustomDivider
               bColor="primary.main"
               cColor="primary"
-              icon={<SchoolRounded />}
+              icon={<SchoolRounded sx={{fill: `${mode === "dark" ? "white" : "black"}`}} />}
               align="center"
               text={t("edu")}
             />
 
-            <DevEduTimeline loading={loading} />
+            <DevEduTimeline  loading={loading} />
           </Grid>
         </Grid>
       </CardContent>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Skill from "../components/pages/Skill";
 import { devSkills } from "../constants/skills";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -6,8 +6,10 @@ import { DeveloperMode } from "@mui/icons-material";
 import { Typography, Box, Chip, Card } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import useTranslationSetup from "./../hooks/useTranslationSetup";
+import MainContext from "../context";
 
 const Skills = ({ helmetTitle }: { helmetTitle: string }) => {
+  const {mode} = useContext(MainContext);
   const {
     htmlSkill,
     cssSkill,
@@ -86,7 +88,7 @@ const Skills = ({ helmetTitle }: { helmetTitle: string }) => {
     <Card
       sx={{
         height: "100vh",
-        backgroundColor: "whitesmoke",
+        backgroundColor:  `${mode === "dark" ? "black" : "white"}`,
         direction: "rtl",
         overflowY: "scroll",
         "&::-webkit-scrollbar": { display: "none" },
@@ -104,7 +106,7 @@ const Skills = ({ helmetTitle }: { helmetTitle: string }) => {
               label={
                 <Typography
                   variant="body1"
-                  color="black"
+                  color={mode === "dark" ? "white" : "black"}
                   sx={{ textAlign: "center" }}
                 >
                   {t("skills")}

@@ -15,10 +15,13 @@ import useTranslationSetup from "./../../hooks/useTranslationSetup";
 import {
     Twitter, 
     } from "../../assets/Projects";
+    
+    import { useContext } from "react";
+    import MainContext from "../../context";
 
-
-
-const ShowProjects = ({ loading }: { loading: boolean }) => {
+    
+    const ShowProjects = ({ loading }: { loading: boolean }) => {
+    const {mode} = useContext(MainContext);
    
     const { t } = useTranslationSetup();
   
@@ -71,6 +74,7 @@ const ShowProjects = ({ loading }: { loading: boolean }) => {
                                 <CardContent>
                                     <Typography
                                         variant="body1"
+                                        color={mode === "dark" ? "white" : "black"}
                                         textAlign="left"
                                         gutterBottom
                                     >
@@ -78,7 +82,7 @@ const ShowProjects = ({ loading }: { loading: boolean }) => {
                                     </Typography>
                                     <Typography
                                         variant="body2"
-                                        color="text.secondary"
+                                      color={mode === "dark" ? "white" : "black"}
                                         textAlign="left"
                                         gutterBottom
                                         sx={{ direction: "ltr" }}

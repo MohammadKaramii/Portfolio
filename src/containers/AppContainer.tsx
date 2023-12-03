@@ -49,6 +49,7 @@ function AppContainer() {
 
   useEffect(() => {
     document.dir = direction;
+    
   }, [direction]);
 
 
@@ -62,7 +63,8 @@ function AppContainer() {
         handleThemeChange,
         handleChangeLanguage, 
         language,
-        direction
+        direction,
+        mode
       }}
     >
       <MainLayout mode={mode}>

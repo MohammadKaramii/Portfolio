@@ -1,4 +1,6 @@
-import { useState, useEffect, ReactElement } from "react";
+import { useState, useEffect, ReactElement, useContext } from "react";
+
+import MainContext from "../../context";
 
 import { Divider, Chip, Typography, Slide } from "@mui/material";
 
@@ -17,6 +19,7 @@ interface DivderProps{
 
 const CustomDivider = ({ bColor, cColor, icon, align, text }: DivderProps) => {
     const [loading, setLoading] = useState(false);
+    const {mode} = useContext(MainContext);
 
     useEffect(() => {
         setLoading(true);
@@ -50,7 +53,7 @@ const CustomDivider = ({ bColor, cColor, icon, align, text }: DivderProps) => {
                         label={
                             <Typography
                                 variant="body1"
-                                color="black"
+                                color={mode === "dark" ? "white" : "black"}
                                 sx={{ textAlign: "center" }}
                             >
                                 {text}

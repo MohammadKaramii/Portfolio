@@ -1,5 +1,5 @@
-import { useState, useEffect} from "react";
-
+import { useState, useEffect, useContext} from "react";
+import MainContext from "../context";
 import { Typography, Card, CardContent, Slide } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { AccountCircle } from "@mui/icons-material";
@@ -12,7 +12,7 @@ import useTranslationSetup from "./../hooks/useTranslationSetup";
 const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
   const [loading, setLoading] = useState(false);
   const { t } = useTranslationSetup();
-
+  const { mode } = useContext(MainContext);
   useEffect(() => {
     setLoading(true);
 
@@ -26,7 +26,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
     <Card
       sx={{
         height: "100vh",
-        backgroundColor: "whitesmoke",
+        backgroundColor:  `${mode === "dark" ? "black" : "white"}`,
         overflowY: "scroll",
         display: "flex",
         flexDirection: "column",
@@ -84,7 +84,7 @@ const Contact = ({ helmetTitle }: { helmetTitle: string }) => {
             >
               <Typography
                 variant="body1"
-                color="black"
+                color={mode === "dark" ? "white" : "black"}
                 sx={{
                   mt: 30,
                   display: {

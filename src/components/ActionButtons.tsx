@@ -11,7 +11,7 @@ import useTranslationSetup from "../hooks/useTranslationSetup";
 const ActionButtons = () => {
   const { t, language } = useTranslationSetup();
   const theme = useTheme();
-  const { handleThemeChange, handleChangeLanguage } = useContext(MainContext);
+  const { handleThemeChange, handleChangeLanguage, mode } = useContext(MainContext);
 
   return (
     <Box
@@ -31,7 +31,7 @@ const ActionButtons = () => {
         size="small"
         color="secondary"
         onClick={handleThemeChange}
-        sx={{ ml: 1, color: "whitesmoke" }}
+        sx={{ ml: 1, color: `${mode === "dark" ? "white" : "black"}` }}
       >
         {theme.palette.mode === "dark" ? (
           <WbSunnyOutlined sx={{ mr: 1 }} />
@@ -47,7 +47,7 @@ const ActionButtons = () => {
         size="small"
         color="secondary"
         onClick={() => handleChangeLanguage(language)}
-        sx={{ mr: 1, color: "whitesmoke" }}
+        sx={{ mr: 1, color:  `${mode === "dark" ? "white" : "black"}` }}
       >
         {language === "fa" ? "fa" : "en"}
       </Fab>

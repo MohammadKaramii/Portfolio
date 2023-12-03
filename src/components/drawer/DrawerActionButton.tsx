@@ -2,12 +2,11 @@ import { useContext } from "react";
 
 import { Fab, Box } from "@mui/material";
 import { MenuRounded } from "@mui/icons-material";
-import { grey } from "@mui/material/colors";
 
 import MainContext from "../../context";
 
 const DrawerActionButton = () => {
-    const { setDrawerOpen } = useContext(MainContext);
+    const { setDrawerOpen, mode } = useContext(MainContext);
 
     return (
         <Box
@@ -27,9 +26,9 @@ const DrawerActionButton = () => {
                 aria-label="Sidebar"
                 size="small"
                 onClick={() => setDrawerOpen(true)}
-                sx={{ backgroundColor: grey[800], m: 2 }}
+                sx={{ backgroundColor:`${mode === "dark" ? "black" : "white"}`, m: 2 }}
             >
-                <MenuRounded />
+                <MenuRounded sx={{fill: "#9d1a1a"}} />
             </Fab>
         </Box>
     );

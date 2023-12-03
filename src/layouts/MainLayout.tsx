@@ -1,5 +1,5 @@
 // export default MainLayout;
-import { Direction, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import { HelmetProvider } from "react-helmet-async";
@@ -8,7 +8,7 @@ import { prefixer } from "stylis";
 import MainContext from "./../context";
 import Grid from "@mui/material/Unstable_Grid2";
 import { lightTheme, darkTheme } from "./theme";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 //NOTE Create RTL Cache
 const cacheRTL = createCache({
@@ -24,12 +24,6 @@ const emptyCache = createCache({
 const MainLayout = ({ children, mode }: { children: React.ReactNode, mode: string }) => {
   const { direction} = useContext(MainContext);
   const theme = mode === "dark" ? darkTheme : lightTheme;
-
-  useEffect (() => {
-    theme.direction = direction as Direction
-  }, [direction] )
-  
-  console.log(theme);
   
   return (
     <CacheProvider value={direction === "rtl" ? cacheRTL : emptyCache}>

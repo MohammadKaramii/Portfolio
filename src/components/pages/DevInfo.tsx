@@ -4,9 +4,9 @@ import useTranslationSetup from "./../../hooks/useTranslationSetup";
 import MainContext from "./../../context"; 
 import { useContext } from "react";
 const Info = ({ children }: { children: React.ReactNode }) => {
-  const { direction } = useContext(MainContext);
+  const { direction, mode } = useContext(MainContext);
   return (
-    <Typography variant="body1" color="black" textAlign="left" sx={{ mt: 2 }}>
+    <Typography variant="body1" color={mode === "dark" ? "white" : "black"} textAlign="left" sx={{ mt: 2 }}>
       {children}
       {direction === "rtl" ? (
       <KeyboardArrowLeftRounded
@@ -20,6 +20,7 @@ const Info = ({ children }: { children: React.ReactNode }) => {
         sx={{
           verticalAlign: "bottom",
           color: "primary.main",
+          
         }}
       />
       )

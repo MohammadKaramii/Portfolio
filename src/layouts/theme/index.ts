@@ -45,36 +45,48 @@ direction: "rtl",
   palette: {
     mode: "dark",
     primary: {
-      main: "#af1d1d",
+      main: "#9d1a1a",
     },
     secondary: {
       main: "#363636",
     },
     lilac: palette.augmentColor({
       color: {
-        main: "#b8c0ff",
+        main: "#2F3775",
       },
     }),
     yellow: palette.augmentColor({
       color: {
-        main: "#Facd11",
+        main: "#504002",
       },
     }),
     lightPink: palette.augmentColor({
       color: {
-        main: "#ffc8dd",
+        main: "#850033",
       },
     }),
     blue: palette.augmentColor({
       color: {
-        main: "#0096c7",
+        main: "#005853",
       },
     }),
     brown: palette.augmentColor({
       color: {
-        main: "#ca6702",
+        main: "#392714",
       },
     }),
+    info: {
+      main: "#00455C",
+    },
+    error:{
+      main: "#540600"
+    },
+    warning:{
+      main: "#5C3700"
+    },    
+    success:{
+      main: "#214A23"
+    },
   },
   typography: {
     fontFamily: "tanha, vazir, roboto",
@@ -94,36 +106,49 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#9d1a1a",
+      main: "#af1d1d",
     },
     secondary: {
       main: "#868686",
     },
     lilac: palette.augmentColor({
       color: {
-        main: "#4a5fff",
+        main: "#b8c0ff",
       },
     }),
     yellow: palette.augmentColor({
       color: {
-        main: "#deb405",
+        main: "#Facd11",
       },
     }),
     lightPink: palette.augmentColor({
       color: {
-        main: "#ff84b3",
+        main: "#ffc8dd",
       },
     }),
     blue: palette.augmentColor({
       color: {
-        main: "#006d91",
+        main: "#96F0D9",
       },
     }),
     brown: palette.augmentColor({
       color: {
-        main: "#934b01",
+        main: "#E2C2A2",
       },
     }),
+    info: {
+      main: "#89D6F0"
+    },
+    error:{
+      main: "#DAAAAA"
+    },   
+     warning:{
+      main: "#FD9D4E"
+    },    
+    success:{
+      main: "#CFE9D0"
+    },
+    
   },
   typography: {
     fontFamily: "tanha, vazir, roboto",

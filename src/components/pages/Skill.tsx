@@ -12,7 +12,8 @@ interface SkillProps {
 
 
   const Skill: FC<SkillProps> = ({ icon, color, name, value }) => {
-    const { direction } = useContext(MainContext);
+    const { direction, mode } = useContext(MainContext);
+  
     
     return (
         <>
@@ -31,7 +32,7 @@ interface SkillProps {
                     }
                     color={color}
                     label={name}
-                    sx={{ color: "#000", width: 160, height: 45, mb: "3px" }}
+                    sx={{ color: `${mode === "dark" ? "white" : "black"}`, width: 160, height: 45, mb: "3px" }}
                 />
             </Divider>
             <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -41,6 +42,7 @@ interface SkillProps {
                             variant="standard"
                             badgeContent={`${Math.round(value)}%`}
                             color={color}
+                        
                         />
                     </Typography>
                 </Box>
