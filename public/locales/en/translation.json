@@ -1,50 +1,143 @@
 {
   "name": "Mohammad Karami",
-  "description": "Frontend Developer",
-  "home": "Main Page",
-  "about": "About Me",
-  "skills": "My Skills",
-  "examples": "My Projects",
-  "contact": "Contact with Me",
-  "nameForm": "Name",
-  "email": "Email",
-  "title": "Title",
-  "message": "Message text",
-  "send": "Send",
-  "age": "Age",
-  "twenty-five": "25",
-  "city": "City",
-  "phone": "Phone Number",
-  "location": "Tehran",
-  "phone-number": "09393307065",
-  "view": "View",
-  "dark": "Dark Theme",
-  "light": "Light Theme",
-  "year-highSchool": "2016 - 2017",
-  "highSchool": "Diploma",
-  "major-highSchool": "Mathematics and Physics",
-  "place-highSchool": "Shahid Beheshti High School (Sampad)",
-  "year-uni": "2018 - 2022",
-  "uni": "Bachelor",
-  "major-uni": "Electrical Engineering Department (Electronics Orientation)",
-  "place-uni": "Buali Sina Hamadan University",
-  "title-twitter": "Twitter",
-  "title-music-player": "Music Web Application",
-  "title-splitwise": "Splitwise",
-  "edu": "Education",
-  "info-twitter": "Twitter project using NextJS, Tailwind CSS and TypeScript",
-  "info-music-player": "Music Web Application project using NextJS, Tailwind CSS and TypeScript",
-  "info-splitwise": "Splitwise project using ReactJS, Bootstrap, TypeScript and Redux",
-  "home-interduce": "I'm Frontend Developer",
-  "name-req": "Name and Surname are required",
-  "email-req": "Email address is required",
-  "email-valid": "The email address is not valid",
-  "title-req": "Title is required",
-  "message-req": "Writing a message is required",
-  "captcha-req": "Captcha is required",
-  "home-title": "Mohammad Karami's Portfolio",
-  "about-title": "Portfolio | About",
-  "skills-title": "Portfolio | Skills",
-  "contact-title": "Portfolio | Contact",
-  "project-title": "Portfolio | Projects"
+  "title": "Frontend Developer",
+  "location": "Tehran, Iran",
+  "email": "karamiwp@gmail.com",
+  "phone": "0939 330 70 65",
+  "github": "@Mohammadkaramii",
+  "linkedin": "@Mohammad-karami",
+
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+
+  "home": {
+    "greeting": "Hi, I'm",
+    "description": "Frontend Developer",
+    "bio": "Passionate frontend developer with expertise in React, TypeScript, and modern web technologies. I love creating beautiful, responsive, and user-friendly web applications.",
+    "subtitle": "Building fast, accessible, and scalable web applications",
+    "cta": "View My Work",
+    "contact-cta": "Get In Touch",
+    "available": "Available for work",
+    "download-cv": "Download CV",
+    "hire-me": "Hire Me"
+  },
+
+  "about": {
+    "title": "About Me",
+    "summary": "Front-end Developer with over 2 years of experience in building fast, accessible, and scalable web applications. I enjoy transforming design concepts into functional UI using modern frameworks while adhering to strong architectural principles. My focus is on addressing user needs through a user-centered approach and contributing to better engineering workflows. I strive to write clean, testable, and maintainable code. Currently, I'm expanding my knowledge in system design, state management, and real-time architectures, particularly in the context of financial platforms. I'm always eager to learn and grow in my field.",
+    "personal-info": "Personal Information",
+    "education-title": "Education"
+  },
+
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with to bring ideas to life",
+    "frontend": "Frontend Technologies",
+    "frontend-title": "Frontend Development",
+    "tools": "Tools & Frameworks",
+    "tools-technologies": "Tools & Technologies",
+    "concepts": "Concepts & Patterns",
+    "development-concepts": "Development Concepts"
+  },
+
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Current Position",
+    "previous": "Previous Roles"
+  },
+
+  "projects": {
+    "title": "Featured Projects",
+    "view-code": "View Code",
+    "view-demo": "Live Demo"
+  },
+
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project in mind? Let's work together!",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "validation": {
+      "name-required": "Name is required",
+      "email-required": "Email is required",
+      "email-invalid": "Please enter a valid email",
+      "subject-required": "Subject is required",
+      "message-required": "Message is required"
+    }
+  },
+
+  "education": {
+    "degree": "Bachelor of Electrical Engineering",
+    "university": "Bu-Ali Sina University",
+    "year": "2018 - 2022"
+  },
+
+  "jobs": {
+    "dorfak": {
+      "title": "Mid-Level Front-End Developer",
+      "company": "Dorfak Intelligent Systems",
+      "location": "Tehran, Iran",
+      "period": "Oct 2024 – Jul 2025",
+      "achievements": [
+        "Built real-time stock market frontends using React, WebSockets and GraphQL",
+        "Contributed to developing a high-performance PWA for financial analytics",
+        "Architected interactive dashboards with live charts using scalable patterns",
+        "Collaborated in Agile teams, ensuring seamless frontend-backend sync",
+        "Enhanced user engagement and data responsiveness (35% increase) through performance optimization and real-time UI enhancements"
+      ]
+    },
+    "kara-ideh": {
+      "title": "Junior Front-End Developer",
+      "company": "Kara Ideh",
+      "location": "Tehran, Iran",
+      "period": "Mar 2023 – Jun 2024",
+      "achievements": [
+        "Delivered multiple responsive UIs across domains with a component-based approach",
+        "Integrated RESTful APIs, enforced TypeScript consistency",
+        "Focused on UI performance optimization (up to 30% improvement)",
+        "Maintained code quality in cross-functional teams"
+      ]
+    }
+  },
+
+  "technical-skills": {
+    "html": "HTML",
+    "css": "CSS & Sass",
+    "javascript": "JavaScript & TypeScript",
+    "react": "ReactJS & NextJS",
+    "redux": "Redux, MobX & Zustand",
+    "testing": "Jest & Vitest",
+    "bootstrap": "Bootstrap & Tailwind",
+    "mui": "Material UI",
+    "git": "Git",
+    "solid": "SOLID & Design Patterns",
+    "pwa": "Progressive Web Apps",
+    "api": "REST & GraphQL"
+  },
+
+  "theme": {
+    "dark": "Dark Mode",
+    "light": "Light Mode",
+    "language": "Language"
+  },
+
+  "meta": {
+    "home-title": "Mohammad Karami - Frontend Developer Portfolio",
+    "about-title": "About - Mohammad Karami Portfolio",
+    "skills-title": "Skills - Mohammad Karami Portfolio",
+    "experience-title": "Experience - Mohammad Karami Portfolio",
+    "projects-title": "Projects - Mohammad Karami Portfolio",
+    "contact-title": "Contact - Mohammad Karami Portfolio"
+  }
 }

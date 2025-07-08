@@ -1,186 +1,211 @@
-import { useState, useEffect, useContext } from "react";
-import Skill from "../components/pages/Skill";
-import { devSkills } from "../constants/skills";
-import Grid from "@mui/material/Unstable_Grid2";
-import { DeveloperMode } from "@mui/icons-material";
-import { Typography, Box, Chip, Card } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  Chip,
+  Stack,
+  useTheme,
+} from "@mui/material";
+import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
-import useTranslationSetup from "./../hooks/useTranslationSetup";
-import MainContext from "../context";
+import { motion } from "framer-motion";
 
-const Skills = ({ helmetTitle }: { helmetTitle: string }) => {
-  const {mode} = useContext(MainContext);
-  const {
-    htmlSkill,
-    cssSkill,
-    jsSkill,
-    reactSkill,
-    gitSkill,
-    nextSkill,
-    typescriptSkill,
-    reduxSkill,
-    materialuiSkill,
-  } = devSkills;
+const Skills = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
 
-  const [javascript, setJavascript] = useState(0);
-  const [html, setHtml] = useState(0);
-  const [css, setCss] = useState(0);
-  const [reactJs, setReactJs] = useState(0);
-  const [git, setGit] = useState(0);
-  const [next, setNext] = useState(0);
-  const [redux, setRedux] = useState(0);
-  const [typescript, setTypescript] = useState(0);
-  const [mui, setMui] = useState(0);
-  const { t } = useTranslationSetup();
-
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setJavascript((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 40);
-      });
-
-      setHtml((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 80);
-      });
-
-      setCss((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 80);
-      });
-
-      setReactJs((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 55);
-      });
-
-      setMui((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 55);
-      });
-
-      setGit((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 40);
-      });
-      setTypescript((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 40);
-      });
-      setRedux((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 35);
-      });
-      setNext((oldProgress) => {
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 40);
-      });
-    }, 200);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      skills: [
+        { name: "React", years: "3+ years" },
+        { name: "TypeScript", years: "2+ years" },
+        { name: "Next.js", years: "2+ years" },
+        { name: "JavaScript (ES6+)", years: "4+ years" },
+        { name: "HTML5 & CSS3", years: "5+ years" },
+        { name: "Material-UI", years: "2+ years" },
+        { name: "Tailwind CSS", years: "1+ years" },
+        { name: "Sass/SCSS", years: "2+ years" },
+      ],
+      color: "primary",
+    },
+    {
+      title: "Tools & Technologies",
+      skills: [
+        { name: "Git & GitHub", years: "3+ years" },
+        { name: "Redux Toolkit", years: "2+ years" },
+        { name: "Vite", years: "1+ years" },
+        { name: "Webpack", years: "1+ years" },
+        { name: "React Query", years: "1+ years" },
+        { name: "Zustand", years: "1+ years" },
+      ],
+      color: "secondary",
+    },
+    {
+      title: "Development Concepts",
+      skills: [
+        { name: "Responsive Design", years: "4+ years" },
+        { name: "REST APIs", years: "3+ years" },
+        { name: "Performance Optimization", years: "2+ years" },
+        { name: "Testing (Jest/Vitest)", years: "1+ years" },
+        { name: "Progressive Web Apps", years: "1+ years" },
+        { name: "Agile Development", years: "2+ years" },
+      ],
+      color: "info",
+    },
+  ];
 
   return (
-    <Card
-      sx={{
-        height: "100vh",
-        backgroundColor:  `${mode === "dark" ? "black" : "white"}`,
-        direction: "rtl",
-        overflowY: "scroll",
-        "&::-webkit-scrollbar": { display: "none" },
-      }}
-    >
+    <>
       <Helmet>
-        <title>{helmetTitle}</title>
+        <title>{t("meta.skills-title")}</title>
       </Helmet>
-      <Grid container sx={{ mx: 4 }}>
-        <Grid sx={{ width: 1, mt: 1 }}>
-          <Box textAlign="left">
-            <Chip
-              color={"yellow" as any}
-              icon={<DeveloperMode />}
-              label={
-                <Typography
-                  variant="body1"
-                  color={mode === "dark" ? "white" : "black"}
-                  sx={{ textAlign: "center" }}
-                >
-                  {t("skills")}
-                </Typography>
-              }
+
+      <Box
+        sx={{
+          minHeight: "100vh",
+          py: { xs: 3, md: 6 },
+          background:
+            theme.palette.mode === "dark"
+              ? "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)"
+              : "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Typography
+              variant="h2"
               sx={{
-                p: 3,
-                display: {
-                  xs: "none",
-                  sm: "none",
-                  md: "inline-flex",
-                  lg: "inline-flex",
-                  xl: "inline-flex",
-                },
+                textAlign: "center",
+                mb: 2,
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: 700,
               }}
-            />
-          </Box>
-          <Skill
-            name={htmlSkill.name}
-            icon={htmlSkill.icon}
-            color={htmlSkill.color}
-            value={html}
-          />
-          <Skill
-            name={cssSkill.name}
-            icon={cssSkill.icon}
-            color={cssSkill.color}
-            value={css}
-          />
-          <Skill
-            name={jsSkill.name}
-            icon={jsSkill.icon}
-            color={jsSkill.color}
-            value={javascript}
-          />
-          <Skill
-            name={gitSkill.name}
-            icon={gitSkill.icon}
-            color={gitSkill.color}
-            value={git}
-          />
-          <Skill
-            name={reactSkill.name}
-            icon={reactSkill.icon}
-            color={reactSkill.color}
-            value={reactJs}
-          />
-          <Skill
-            name={nextSkill.name}
-            icon={nextSkill.icon}
-            color={nextSkill.color}
-            value={next}
-          />
-          <Skill
-            name={typescriptSkill.name}
-            icon={typescriptSkill.icon}
-            color={typescriptSkill.color}
-            value={typescript}
-          />
-          <Skill
-            name={reduxSkill.name}
-            icon={reduxSkill.icon}
-            color={reduxSkill.color}
-            value={redux}
-          />
-          <Skill
-            name={materialuiSkill.name}
-            icon={materialuiSkill.icon}
-            color={materialuiSkill.color}
-            value={mui}
-          />
-        </Grid>
-      </Grid>
-    </Card>
+            >
+              {t("skills.title")}
+            </Typography>
+
+            <Typography
+              variant="h6"
+              sx={{
+                textAlign: "center",
+                mb: 6,
+                color: "text.secondary",
+                maxWidth: "600px",
+                mx: "auto",
+              }}
+            >
+              Technologies and tools I work with to bring ideas to life
+            </Typography>
+          </motion.div>
+
+          <Grid container spacing={4}>
+            {skillCategories.map((category, categoryIndex) => (
+              <Grid item xs={12} md={6} lg={4} key={categoryIndex}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+                >
+                  <Card
+                    sx={{
+                      height: "100%",
+                      background:
+                        theme.palette.mode === "dark"
+                          ? "linear-gradient(135deg, #1e293b 0%, #334155 100%)"
+                          : "linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)",
+                      border: `1px solid ${theme.palette.divider}`,
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-4px)",
+                        boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ p: 3 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          mb: 3,
+                          fontWeight: 600,
+                          color: `${category.color}.main`,
+                          textAlign: "center",
+                        }}
+                      >
+                        {category.title}
+                      </Typography>
+
+                      <Stack spacing={2}>
+                        {category.skills.map((skill, skillIndex) => (
+                          <motion.div
+                            key={skillIndex}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              delay: categoryIndex * 0.2 + skillIndex * 0.1,
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                p: 2,
+                                borderRadius: 2,
+                                background:
+                                  theme.palette.mode === "dark"
+                                    ? "rgba(255, 255, 255, 0.05)"
+                                    : "rgba(0, 0, 0, 0.03)",
+                                border: `1px solid ${theme.palette.divider}`,
+                                transition: "all 0.3s ease",
+                                "&:hover": {
+                                  borderColor: `${category.color}.main`,
+                                  transform: "translateX(4px)",
+                                },
+                              }}
+                            >
+                              <Typography
+                                variant="body1"
+                                sx={{
+                                  fontWeight: 500,
+                                  fontSize: "0.95rem",
+                                }}
+                              >
+                                {skill.name}
+                              </Typography>
+                              <Chip
+                                label={skill.years}
+                                size="small"
+                                sx={{
+                                  backgroundColor: `${category.color}.main`,
+                                  color: "white",
+                                  fontWeight: 600,
+                                  fontSize: "0.75rem",
+                                }}
+                              />
+                            </Box>
+                          </motion.div>
+                        ))}
+                      </Stack>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </>
   );
 };
 

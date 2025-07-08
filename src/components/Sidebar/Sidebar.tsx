@@ -1,16 +1,41 @@
-import { SidebarContent } from ".";
-import { DrawerActionButton, SidebarDrawer } from "../drawer";
+import { Box } from "@mui/material";
+import SidebarHeader from "./SidebarHeader";
+import SidebarTabs from "./SidebarTabs";
+import { useState } from "react";
 
 const Sidebar = () => {
-    return (
-        <>
-            <DrawerActionButton />
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
-            <SidebarContent  />
+  const handleThemeChange = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
 
-            <SidebarDrawer />
-        </>
+    // Dispatch custom event for theme change
+    window.dispatchEvent(
+      new CustomEvent("themeChange", {
+        detail: { theme: newMode ? "dark" : "light" },
+      })
     );
+  };
+
+  return (
+    <Box
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <SidebarHeader
+        onThemeChange={handleThemeChange}
+        isDarkMode={isDarkMode}
+      />
+      <SidebarTabs />
+    </Box>
+  );
 };
 
 export default Sidebar;

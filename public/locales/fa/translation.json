@@ -1,50 +1,143 @@
 {
   "name": "محمد کرمی",
-  "description": "توسعه دهنده فرانت اند",
-  "home": "صفحه اصلی",
-  "about": "درباره من",
-  "skills": " مهارت های من",
-  "examples": "نمونه کارها",
-  "contact": "ارتباط با من",
-  "nameForm": "نام و نام خانوادگی",
-  "email": "ایمیل",
-  "title": "عنوان",
-  "message": "ارسال پیام",
-  "send": "ارسال",
-  "age": "سن",
-  "twenty-five": "۲۵",
-  "city": "شهر",
-  "phone": "شماره تماس",
-  "location": "تهران",
-  "phone-number": "۰۹۳۹۳۳۰۷۰۶۵",
-  "view": "مشاهده",
-  "dark": "تم شب",
-  "light": "تم روز",
-  "year-highSchool": "۱۳۹۶ - ۱۳۹۵",
-  "highSchool": "دیپلم",
-  "major-highSchool": "رشته ریاضی و فیزیک",
-  "place-highSchool": "دبیرستان شهید بهشتی (سمپاد)",
-  "year-uni": "۱۴۰۱ - ۱۳۹۷",
-  "uni": "کارشناسی",
-  "major-uni": "رشته مهندسی برق (گرایش الکترونیک)",
-  "place-uni": "دانشگاه بوعلی سینا همدان",
-  "title-twitter": "توییتر",
-  "title-music-player": "وب اپ موزیک پلیر",
-  "title-splitwise": "برنامه محاسبه هزینه های اشتراکی",
-  "edu": "تحصیلات",
-  "home-interduce": "من یک توسعه دهنده فرانت اند هستم",
-  "name-req": "نام و نام خانوادگی الزامی می باشد",
-  "email-req": "آدرس ایمیل الزامی می باشد",
-  "email-valid": "آدرس ایمیل معتبر نیست",
-  "title-req": "نوشتن عنوان الزامی می باشد",
-  "message-req": "نوشتن پیام الزامی می باشد",
-  "captcha-req": "الزامی می باشد CAPTCHA",
-  "info-twitter": "پروژه توییتر با استفاده از NextJS ،Tailwind CSS و TypeScript",
-  "info-music-player": "پروژه Music Web Application با استفاده از NextJS، Tailwind CSS و TypeScript",
-  "info-splitwise": "پروژه Splitwise با استفاده از ReactJS، Bootstrap، TypeScript و Redux",
-  "home-title": "Mohammad Karami's Portfolio | صفحه اصلی",
-  "about-title": "Portfolio | درباره من",
-  "skills-title": "Portfolio | مهارت های من",
-  "contact-title": "Portfolio | ارتباط با من",
-  "project-title": "Portfolio | نمونه کارها"
+  "title": "توسعه‌دهنده فرانت‌اند",
+  "location": "تهران، ایران",
+  "email": "karamiwp@gmail.com",
+  "phone": "۰۹۳۹ ۳۳۰ ۷۰ ۶۵",
+  "github": "@Mohammadkaramii",
+  "linkedin": "@Mohammad-karami",
+
+  "navigation": {
+    "home": "خانه",
+    "about": "درباره من",
+    "skills": "مهارت‌ها",
+    "experience": "تجربه",
+    "projects": "پروژه‌ها",
+    "contact": "تماس"
+  },
+
+  "home": {
+    "greeting": "سلام، من",
+    "description": "توسعه‌دهنده فرانت‌اند",
+    "bio": "توسعه‌دهنده فرانت‌اند با علاقه به React، TypeScript و تکنولوژی‌های مدرن وب. من عاشق ساختن وب‌اپلیکیشن‌های زیبا، responsive و کاربرپسند هستم.",
+    "subtitle": "ساخت وب‌اپلیکیشن‌های سریع، قابل دسترس و مقیاس‌پذیر",
+    "cta": "مشاهده کارهای من",
+    "contact-cta": "ارتباط با من",
+    "available": "آماده برای کار",
+    "download-cv": "دانلود رزومه",
+    "hire-me": "استخدام من"
+  },
+
+  "about": {
+    "title": "درباره من",
+    "summary": "توسعه‌دهنده فرانت‌اند با بیش از ۲ سال تجربه در ساخت وب‌اپلیکیشن‌های سریع، قابل دسترس و مقیاس‌پذیر. من از تبدیل مفاهیم طراحی به رابط کاربری عملکردی با استفاده از فریمورک‌های مدرن و رعایت اصول معماری قوی لذت می‌برم. تمرکز من بر پاسخگویی به نیازهای کاربران از طریق رویکرد کاربرمحور و کمک به بهبود فرآیندهای مهندسی است. من تلاش می‌کنم کد تمیز، قابل تست و قابل نگهداری بنویسم. در حال حاضر، دانش خود را در طراحی سیستم، مدیریت state و معماری‌های real-time، به‌ویژه در زمینه پلتفرم‌های مالی گسترش می‌دهم. همیشه مشتاق یادگیری و رشد در زمینه‌ام هستم.",
+    "personal-info": "اطلاعات شخصی",
+    "education-title": "تحصیلات"
+  },
+
+  "skills": {
+    "title": "مهارت‌های فنی",
+    "subtitle": "تکنولوژی‌ها و ابزارهایی که برای تحقق ایده‌ها استفاده می‌کنم",
+    "frontend": "تکنولوژی‌های فرانت‌اند",
+    "frontend-title": "توسعه فرانت‌اند",
+    "tools": "ابزارها و فریمورک‌ها",
+    "tools-technologies": "ابزارها و تکنولوژی‌ها",
+    "concepts": "مفاهیم و الگوها",
+    "development-concepts": "مفاهیم توسعه"
+  },
+
+  "experience": {
+    "title": "تجربه شغلی",
+    "current": "موقعیت فعلی",
+    "previous": "نقش‌های قبلی"
+  },
+
+  "projects": {
+    "title": "پروژه‌های برجسته",
+    "view-code": "مشاهده کد",
+    "view-demo": "دمو زنده"
+  },
+
+  "contact": {
+    "title": "ارتباط با من",
+    "subtitle": "پروژه‌ای در ذهن دارید؟ بیایید با هم کار کنیم!",
+    "form": {
+      "name": "نام کامل",
+      "email": "آدرس ایمیل",
+      "subject": "موضوع",
+      "message": "پیام",
+      "send": "ارسال پیام"
+    },
+    "validation": {
+      "name-required": "نام الزامی است",
+      "email-required": "ایمیل الزامی است",
+      "email-invalid": "لطفا یک ایمیل معتبر وارد کنید",
+      "subject-required": "موضوع الزامی است",
+      "message-required": "پیام الزامی است"
+    }
+  },
+
+  "education": {
+    "degree": "کارشناسی مهندسی برق",
+    "university": "دانشگاه بوعلی سینا",
+    "year": "۱۳۹۷ - ۱۴۰۱"
+  },
+
+  "jobs": {
+    "dorfak": {
+      "title": "توسعه‌دهنده فرانت‌اند میدلول",
+      "company": "سیستم‌های هوشمند درفک",
+      "location": "تهران، ایران",
+      "period": "مهر ۱۴۰۳ – تیر ۱۴۰۴",
+      "achievements": [
+        "ساخت فرانت‌اند real-time بازار سهام با React، WebSocket و GraphQL",
+        "مشارکت در توسعه PWA با عملکرد بالا برای تحلیل‌های مالی",
+        "طراحی معماری داشبوردهای تعاملی با نمودارهای زنده با استفاده از الگوهای مقیاس‌پذیر",
+        "همکاری در تیم‌های Agile و تضمین همگام‌سازی seamless فرانت‌اند-بک‌اند",
+        "افزایش engagement کاربران و پاسخگویی داده‌ها (۳۵% افزایش) از طریق بهینه‌سازی عملکرد و بهبودهای UI real-time"
+      ]
+    },
+    "kara-ideh": {
+      "title": "توسعه‌دهنده فرانت‌اند جونیور",
+      "company": "کاراایده",
+      "location": "تهران، ایران",
+      "period": "اسفند ۱۴۰۱ – خرداد ۱۴۰۳",
+      "achievements": [
+        "تحویل چندین UI responsive در حوزه‌های مختلف با رویکرد component-based",
+        "یکپارچه‌سازی RESTful APIها، اعمال ثبات TypeScript",
+        "تمرکز بر بهینه‌سازی عملکرد UI (تا ۳۰% بهبود)",
+        "حفظ کیفیت کد در تیم‌های cross-functional"
+      ]
+    }
+  },
+
+  "technical-skills": {
+    "html": "HTML",
+    "css": "CSS و Sass",
+    "javascript": "JavaScript و TypeScript",
+    "react": "ReactJS و NextJS",
+    "redux": "Redux، MobX و Zustand",
+    "testing": "Jest و Vitest",
+    "bootstrap": "Bootstrap و Tailwind",
+    "mui": "Material UI",
+    "git": "Git",
+    "solid": "SOLID و Design Patterns",
+    "pwa": "Progressive Web Apps",
+    "api": "REST و GraphQL"
+  },
+
+  "theme": {
+    "dark": "حالت تاریک",
+    "light": "حالت روشن",
+    "language": "زبان"
+  },
+
+  "meta": {
+    "home-title": "محمد کرمی - نمونه‌کار توسعه‌دهنده فرانت‌اند",
+    "about-title": "درباره من - نمونه‌کار محمد کرمی",
+    "skills-title": "مهارت‌ها - نمونه‌کار محمد کرمی",
+    "experience-title": "تجربه - نمونه‌کار محمد کرمی",
+    "projects-title": "پروژه‌ها - نمونه‌کار محمد کرمی",
+    "contact-title": "تماس - نمونه‌کار محمد کرمی"
+  }
 }

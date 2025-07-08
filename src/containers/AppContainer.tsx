@@ -1,101 +1,131 @@
 import { useState, useEffect } from "react";
-import { Typography } from "@mui/material";
-import { useMediaQuery, Direction } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import MainLayout from "../layouts/MainLayout";
-import { Sidebar } from "../components/Sidebar";
-import PagesContainer from "./PagesContainer";
-import Page from "../components/pages/Page";
 import SidebarContainer from "./SidebarContainer";
+import PagesContainer from "./PagesContainer";
+import { Sidebar } from "../components/Sidebar";
 import MainContext from "../context";
-import { Home, About, Skills, Projects, Contact } from "../pages";
-import useTranslationSetup from "../hooks/useTranslationSetup";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
+import { Menu } from "@mui/icons-material";
 
+// Import pages
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Skills from "../pages/Skills";
+import Experience from "../pages/Experience";
+import Projects from "../pages/Projects";
+import Contact from "../pages/Contact";
 
+const AppContainer = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
 
+  const [direction, setDirection] = useState<"ltr" | "rtl">(() => {
+    const savedLang = localStorage.getItem("i18nextLng") || "en";
+    return savedLang === "fa" ? "rtl" : "ltr";
+  });
 
-function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [mode, setMode] = useState<string>("");
-  const theme = useTheme();
-  const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [language, setLanguage] = useState("fa");
-  const [direction, setDirection] = useState<Direction>("rtl" as Direction);
-  const { t } = useTranslationSetup();
+
+  // Pages array
+  const pages = [
+    <Home key="home" />,
+    <About key="about" />,
+    <Skills key="skills" />,
+    <Experience key="experience" />,
+    <Projects key="projects" />,
+    <Contact key="contact" />,
+  ];
+
+  // Listen for theme changes
   useEffect(() => {
-    setMode(prefersDarkMode ? "dark" : "light");
+    const handleThemeChange = (event: CustomEvent) => {
+      setMode(event.detail.theme);
+    };
+
+    window.addEventListener("themeChange", handleThemeChange as EventListener);
+
+    return () => {
+      window.removeEventListener(
+        "themeChange",
+        handleThemeChange as EventListener
+      );
+    };
   }, []);
 
-  useEffect(() => {
-    if (isMdUp) {
+  const handlePageNumber = (_: React.SyntheticEvent, newValue: number) => {
+    setPageNumber(newValue);
+    if (isMobile) {
       setDrawerOpen(false);
     }
-  }, [isMdUp]);
-
-  const handleThemeChange = () => {
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-  };
-  const handlePageNumber = (_event: React.SyntheticEvent, newPage: number) => {
-    setPageNumber(newPage);
   };
 
-  const handleChangeLanguage = () => {
-    setLanguage((prevLang) => (prevLang === "fa" ? "en" : "fa"))
-    setDirection(language === "fa" ? "ltr" : "rtl");
+  const contextValue = {
+    pageNumber,
+    handlePageNumber,
+    drawerOpen,
+    setDrawerOpen,
+    direction,
+    setDirection,
+    mode,
+    setMode,
   };
-
-  useEffect(() => {
-    document.dir = direction;
-    
-  }, [direction]);
-
 
   return (
-    <MainContext.Provider
-      value={{
-        pageNumber,
-        handlePageNumber,
-        drawerOpen,
-        setDrawerOpen,
-        handleThemeChange,
-        handleChangeLanguage, 
-        language,
-        direction,
-        mode
-      }}
-    >
+    <MainContext.Provider value={contextValue}>
       <MainLayout mode={mode}>
-     
+        {/* Mobile Menu Button */}
+        {isMobile && (
+          <IconButton
+            onClick={() => setDrawerOpen(true)}
+            sx={{
+              position: "fixed",
+              top: 16,
+              left: 16,
+              zIndex: 1300,
+              backgroundColor: "background.paper",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+              "&:hover": {
+                backgroundColor: "primary.main",
+                color: "white",
+              },
+            }}
+          >
+            <Menu />
+          </IconButton>
+        )}
+
+        {/* Mobile overlay for sidebar */}
+        {drawerOpen && (
+          <Box
+            sx={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              zIndex: 1100,
+              display: { xs: "block", md: "none" },
+            }}
+            onClick={() => setDrawerOpen(false)}
+          />
+        )}
+
+        {/* Sidebar */}
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
-        <PagesContainer>
-          <Page pageNumber={pageNumber} index={0}>
-            <Home helmetTitle={t("home-title")} />
-          </Page>
-          <Page pageNumber={pageNumber} index={1}>
-            <About helmetTitle={t("about-title")} />
-          </Page>
-          <Page pageNumber={pageNumber} index={2}>
-            <Skills helmetTitle={t("skills-title")} />
-          </Page>
-          <Page pageNumber={pageNumber} index={3}>
-            <Typography variant="h5" sx={{ textAlign: "center" }}>
-              <Projects helmetTitle={t("project-title")} />
-            </Typography>
-          </Page>
-          <Page pageNumber={pageNumber} index={4}>
-            <Typography variant="h5" sx={{ textAlign: "center" }}>
-              <Contact helmetTitle={t("contact-title")} />
-            </Typography>
-          </Page>
-        </PagesContainer>
+
+        {/* Main content */}
+        <PagesContainer>{pages[pageNumber]}</PagesContainer>
       </MainLayout>
     </MainContext.Provider>
   );
-}
+};
 
-export default AppContainer
+export default AppContainer;
