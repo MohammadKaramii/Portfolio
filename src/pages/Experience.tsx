@@ -1,21 +1,5 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  Chip,
-  Stack,
-  useTheme,
-} from "@mui/material";
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-} from "@mui/lab";
+import { Box, Container, Typography, Card, CardContent, Chip, Stack, useTheme } from "@mui/material";
+import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from "@mui/lab";
 import { Work, School } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
@@ -54,11 +38,9 @@ const Experience = () => {
       company: t("education.university"),
       location: "Hamedan, Iran",
       period: t("education.year"),
-      achievements: [
-        "Bachelor's degree in Electrical Engineering",
-        "Focus on Digital Systems and Programming",
-        "Projects in embedded systems and web development",
-      ],
+      achievements: t("education.achievements", {
+        returnObjects: true,
+      }) as string[],
       current: false,
     },
   ];
@@ -80,11 +62,7 @@ const Experience = () => {
         }}
       >
         <Container maxWidth="md">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -109,7 +87,7 @@ const Experience = () => {
                 mx: "auto",
               }}
             >
-              My professional journey in frontend development and engineering
+              {t("experience.subtitle")}
             </Typography>
           </motion.div>
 
@@ -122,8 +100,8 @@ const Experience = () => {
                       backgroundColor: exp.current
                         ? "primary.main"
                         : exp.type === "work"
-                        ? "secondary.main"
-                        : "info.main",
+                          ? "secondary.main"
+                          : "info.main",
                       p: 1,
                     }}
                   >
@@ -153,37 +131,31 @@ const Experience = () => {
                         },
                       }}
                     >
-                      <CardContent sx={{ p: 3 }}>
+                      <CardContent sx={{ p: 3, textAlign: "justify" }}>
                         <Stack
                           direction="row"
                           justifyContent="space-between"
                           alignItems="start"
                           gap={3}
                           mb={2}
-                          spacing={3} // Add gap between content and date
+                          spacing={3}
                         >
                           <Box sx={{ flex: 1, minWidth: 0 }}>
-                            {" "}
-                            {/* Allow text to shrink */}
                             <Typography
                               variant="h6"
                               sx={{
                                 fontWeight: 600,
                                 mb: 0.5,
-                                fontSize: { xs: "1.1rem", md: "1.2rem" }, // Smaller font size
+                                fontSize: { xs: "1.1rem", md: "1.2rem" },
                                 lineHeight: 1.3,
                                 overflow: "hidden",
                                 textOverflow: "ellipsis",
-                                whiteSpace: "nowrap", // Keep in one line
+                                whiteSpace: "nowrap",
                               }}
                             >
                               {exp.title}
                             </Typography>
-                            <Typography
-                              variant="subtitle1"
-                              color="primary"
-                              sx={{ fontWeight: 500 }}
-                            >
+                            <Typography variant="subtitle1" color="primary" sx={{ fontWeight: 500 }}>
                               {exp.company}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
@@ -191,40 +163,23 @@ const Experience = () => {
                             </Typography>
                           </Box>
 
-                          <Stack
-                            spacing={1}
-                            alignItems="flex-end"
-                            sx={{ flexShrink: 0 }}
-                          >
+                          <Stack spacing={1} alignItems="flex-end" sx={{ flexShrink: 0 }}>
                             <Chip
                               label={exp.period}
                               size="small"
                               sx={{
-                                backgroundColor: exp.current
-                                  ? "success.main"
-                                  : "default",
-                                color: exp.current ? "white" : "text.secondary",
+                                backgroundColor: exp.current ? "success.main" : "default",
+                                color: "white",
                                 fontWeight: 500,
-                                whiteSpace: "nowrap", // Keep date in one line
+                                whiteSpace: "nowrap",
                               }}
                             />
-                            {exp.current && (
-                              <Chip
-                                label="Current"
-                                size="small"
-                                color="success"
-                                sx={{ fontWeight: 600, color: "white" }}
-                              />
-                            )}
                           </Stack>
                         </Stack>
 
                         <Box>
-                          <Typography
-                            variant="subtitle2"
-                            sx={{ mb: 1, fontWeight: 600 }}
-                          >
-                            Key Achievements:
+                          <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
+                            {t("experience.key-achievements")}
                           </Typography>
                           <Stack spacing={1}>
                             {exp.achievements.map((achievement, achIndex) => (

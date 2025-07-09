@@ -29,13 +29,9 @@ export default {
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
 
-# React Vite App with Recaptcha
+# React Portfolio App
 
-This is a React project Designed with MaterialUi with Vite that integrates with Recaptcha for security. In order to run this app successfully, you will need to provide the Recaptcha Site Key.
-
-## Prerequisites
-Before running the application, make sure you have the following keys ready:
-- Recaptcha Site Key
+This is a React portfolio project built with Material-UI and Vite. The contact form sends emails directly to karamiwp@gmail.com using the mailto protocol.
 
 ## Getting Started
 1. Clone this repository to your local machine.
@@ -44,22 +40,17 @@ Before running the application, make sure you have the following keys ready:
 
 ```bash
 npm install
-Create a .env file in the root of the project.
+```
 
-Add the following environment variables to the .env file:
+4. Start the development server:
 
-plaintext
-
-# Recaptcha Config
-VITE_RECAPTCHA_SITE_KEY=YOUR_RECAPTCHA_SITE_KEY
-Replace YOUR_RECAPTCHA_SITE_KEY with your actual Recaptcha Site Key respectively.
-
-Start the development server:
-
-bash
-Copy code
+```bash
 npm run dev
-Open your browser and navigate to http://localhost:3000 to view the app.
-Additional Information
-For Recaptcha integration, refer to Google Recaptcha Documentation.
+```
+
+5. Open your browser and navigate to http://localhost:3000 to view the app.
+
+## Contact Form
+The contact form automatically opens the user's default email client with pre-filled information when submitted. No additional configuration is required.
+
 Feel free to customize and build upon this project according to your requirements!

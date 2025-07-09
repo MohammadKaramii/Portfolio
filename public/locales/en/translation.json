@@ -32,7 +32,11 @@
     "title": "About Me",
     "summary": "Front-end Developer with over 2 years of experience in building fast, accessible, and scalable web applications. I enjoy transforming design concepts into functional UI using modern frameworks while adhering to strong architectural principles. My focus is on addressing user needs through a user-centered approach and contributing to better engineering workflows. I strive to write clean, testable, and maintainable code. Currently, I'm expanding my knowledge in system design, state management, and real-time architectures, particularly in the context of financial platforms. I'm always eager to learn and grow in my field.",
     "personal-info": "Personal Information",
-    "education-title": "Education"
+    "education-title": "Education",
+    "key-highlights": "Key Highlights",
+    "title-1": "2+ Years Experience",
+    "title-2": "10+ Projects",
+    "title-3": "Agile Teams"
   },
 
   "skills": {
@@ -43,30 +47,56 @@
     "tools": "Tools & Frameworks",
     "tools-technologies": "Tools & Technologies",
     "concepts": "Concepts & Patterns",
-    "development-concepts": "Development Concepts"
+    "development-concepts": "Development Concepts",
+    "years": "Years",
+    "plus-one": "+1",
+    "plus-two": "+2",
+    "plus-three": "+3",
+    "plus-four": "+4",
+    "plus-five": "+5"
   },
 
   "experience": {
     "title": "Professional Experience",
+    "subtitle": "My professional journey in frontend development and engineering",
     "current": "Current Position",
-    "previous": "Previous Roles"
+    "previous": "Previous Roles",
+    "key-achievements": "Key Achievements"
   },
 
   "projects": {
     "title": "Featured Projects",
+    "subtitle": "Here are some of my recent projects that showcase my development skills",
     "view-code": "View Code",
-    "view-demo": "Live Demo"
+    "view-demo": "Live Demo",
+    "technologies": "Technologies",
+    "musicWebApp": {
+      "title": "Music Web App",
+      "description": "A responsive music streaming web application with modern UI design, playlist management, and audio controls."
+    },
+    "twitterClone": {
+      "title": "Twitter Clone",
+      "description": "Social media platform replica with user authentication, posting features, and real-time updates."
+    },
+    "splitwiseApp": {
+      "title": "Splitwise App",
+      "description": "Expense sharing application for groups to track shared expenses and settle debts easily."
+    }
   },
 
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Have a project in mind? Let's work together!",
     "form": {
+      "title": "Send a Message",
       "name": "Full Name",
       "email": "Email Address",
+      "phone": "Phone Number",
+      "location": "Location",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send Message"
+      "send": "Send Message",
+      "follow-me": "Follow Me"
     },
     "validation": {
       "name-required": "Name is required",
@@ -80,7 +110,12 @@
   "education": {
     "degree": "Bachelor of Electrical Engineering",
     "university": "Bu-Ali Sina University",
-    "year": "2018 - 2022"
+    "year": "2018 - 2022",
+    "achievements": [
+      "Bachelor's degree in Electrical Engineering",
+      "Focus on Digital Systems and Programming",
+      "Projects in embedded systems and web development"
+    ]
   },
 
   "jobs": {

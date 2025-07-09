@@ -12,25 +12,14 @@ import {
   useTheme,
   Paper,
 } from "@mui/material";
-import {
-  LocationOn,
-  Email,
-  Phone,
-  School,
-  Work,
-  Code,
-  Timeline,
-} from "@mui/icons-material";
+import { LocationOn, Email, Phone, School, Work, Code, Timeline } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { useContext } from "react";
-import MainContext from "../context";
 
 const About = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const { direction } = useContext(MainContext);
 
   const personalInfo = [
     {
@@ -53,17 +42,17 @@ const About = () => {
   const highlights = [
     {
       icon: <Code />,
-      title: "2+ Years Experience",
+      title: t("about.title-1"),
       description: t("skills.frontend"),
     },
     {
       icon: <Work />,
-      title: "10+ Projects",
+      title: t("about.title-2"),
       description: t("skills.tools-technologies"),
     },
     {
       icon: <Timeline />,
-      title: "Agile Teams",
+      title: t("about.title-3"),
       description: t("skills.development-concepts"),
     },
   ];
@@ -85,11 +74,7 @@ const About = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -106,7 +91,6 @@ const About = () => {
           </motion.div>
 
           <Grid container spacing={4}>
-            {/* Profile Section */}
             <Grid item xs={12} md={4}>
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -125,7 +109,7 @@ const About = () => {
                 >
                   <CardContent sx={{ p: 4 }}>
                     <Avatar
-                      src="/src/assets/person.jpg"
+                      src="/user.jpg"
                       alt={t("name")}
                       sx={{
                         width: 120,
@@ -141,11 +125,7 @@ const About = () => {
                       {t("name")}
                     </Typography>
 
-                    <Typography
-                      variant="subtitle1"
-                      color="primary"
-                      sx={{ mb: 3, fontWeight: 500 }}
-                    >
+                    <Typography variant="subtitle1" color="primary" sx={{ mb: 3, fontWeight: 500 }}>
                       {t("title")}
                     </Typography>
 
@@ -166,9 +146,7 @@ const About = () => {
                             p: 1.5,
                             borderRadius: 2,
                             backgroundColor:
-                              theme.palette.mode === "dark"
-                                ? "rgba(255,255,255,0.05)"
-                                : "rgba(0,0,0,0.03)",
+                              theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
                           }}
                         >
                           <Box
@@ -195,10 +173,8 @@ const About = () => {
               </motion.div>
             </Grid>
 
-            {/* Content Section */}
             <Grid item xs={12} md={8}>
               <Stack spacing={4}>
-                {/* About Text */}
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -208,7 +184,6 @@ const About = () => {
                     <CardContent sx={{ p: 4 }}>
                       <Typography
                         variant="body1"
-                        dir={direction}
                         sx={{
                           lineHeight: 1.8,
                           fontSize: "1.1rem",
@@ -221,14 +196,13 @@ const About = () => {
                   </Card>
                 </motion.div>
 
-                {/* Key Highlights */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
-                    Key Highlights
+                    {t("about.key-highlights")}
                   </Typography>
 
                   <Grid container spacing={3}>
@@ -260,10 +234,7 @@ const About = () => {
                           >
                             {highlight.icon}
                           </Box>
-                          <Typography
-                            variant="h6"
-                            sx={{ mb: 1, fontWeight: 600 }}
-                          >
+                          <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
                             {highlight.title}
                           </Typography>
                           <Typography variant="body2" color="text.secondary">
@@ -275,20 +246,14 @@ const About = () => {
                   </Grid>
                 </motion.div>
 
-                {/* Education */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <Card>
-                    <CardContent sx={{ p: 4 }} dir={direction}>
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        spacing={2}
-                        sx={{ mb: 3 }}
-                      >
+                    <CardContent sx={{ p: 4 }}>
+                      <Stack direction="row" alignItems="center" spacing={2} sx={{ mb: 3 }}>
                         <School color="primary" />
                         <Typography variant="h5" sx={{ fontWeight: 600 }}>
                           {t("about.education-title")}
@@ -299,23 +264,13 @@ const About = () => {
                         sx={{
                           p: 3,
                           borderRadius: 2,
-                          background:
-                            theme.palette.mode === "dark"
-                              ? "rgba(255,255,255,0.05)"
-                              : "rgba(0,0,0,0.03)",
+                          background: theme.palette.mode === "dark" ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)",
                         }}
                       >
-                        <Typography
-                          variant="h6"
-                          sx={{ mb: 1, fontWeight: 600 }}
-                        >
+                        <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
                           {t("education.degree")}
                         </Typography>
-                        <Typography
-                          variant="body1"
-                          color="primary"
-                          sx={{ mb: 1 }}
-                        >
+                        <Typography variant="body1" color="primary" sx={{ mb: 1 }}>
                           {t("education.university")}
                         </Typography>
                         <Chip

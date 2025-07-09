@@ -12,6 +12,13 @@ import {
 import LinesEllipsis from "react-lines-ellipsis";
 import Grid from "@mui/material/Unstable_Grid2";
 import useTranslationSetup from "./../../hooks/useTranslationSetup";
+
+const LinesEllipsisComponent = LinesEllipsis as unknown as React.ComponentType<{
+  text: string;
+  maxLine: string | number;
+  trimRight?: boolean;
+  ellipsis?: string;
+}>;
 import { Twitter, MusicPlayer, Splitwise } from "../../assets/Projects";
 
 import { useContext } from "react";
@@ -62,13 +69,7 @@ const ShowProjects = ({ loading }: { loading: boolean }) => {
               }}
             >
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="250"
-                  width="200"
-                  image={project.image}
-                  alt={project.title}
-                />
+                <CardMedia component="img" height="250" width="200" image={project.image} alt={project.title} />
                 <Tooltip title={project.info} arrow>
                   <CardContent>
                     <Typography
@@ -86,23 +87,13 @@ const ShowProjects = ({ loading }: { loading: boolean }) => {
                       gutterBottom
                       sx={{ direction: "ltr" }}
                     >
-                      <LinesEllipsis
-                        text={project.info}
-                        maxLine={"3"}
-                        trimRight
-                        ellipsis="..."
-                      />
+                      <LinesEllipsisComponent text={project.info} maxLine={"3"} trimRight ellipsis="..." />
                     </Typography>
                   </CardContent>
                 </Tooltip>
               </CardActionArea>
               <CardActions>
-                <Button
-                  href={project.link}
-                  size="small"
-                  color="warning"
-                  target="_blank"
-                >
+                <Button href={project.link} size="small" color="warning" target="_blank">
                   {t("view")}
                 </Button>
               </CardActions>

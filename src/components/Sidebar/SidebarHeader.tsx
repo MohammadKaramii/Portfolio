@@ -1,23 +1,5 @@
-import {
-  Box,
-  Avatar,
-  Typography,
-  IconButton,
-  Stack,
-  Switch,
-  FormControlLabel,
-  Tooltip,
-  useTheme,
-} from "@mui/material";
-import {
-  Language,
-  GitHub,
-  LinkedIn,
-  WhatsApp,
-  Email,
-  DarkMode,
-  LightMode,
-} from "@mui/icons-material";
+import { Box, Avatar, Typography, IconButton, Stack, Switch, FormControlLabel, Tooltip, useTheme } from "@mui/material";
+import { Language, GitHub, LinkedIn, WhatsApp, Email, DarkMode, LightMode } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import MainContext from "../../context";
@@ -68,10 +50,9 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
         borderBottom: `1px solid ${theme.palette.divider}`,
       }}
     >
-      {/* Avatar and Basic Info */}
       <Stack alignItems="center" spacing={1} mb={1.5}>
         <Avatar
-          src="/src/assets/person.jpg"
+          src="/user.jpg"
           alt={t("name")}
           sx={{
             width: 50,
@@ -94,17 +75,12 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
           >
             {t("name")}
           </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ fontSize: "0.7rem" }}
-          >
+          <Typography variant="body2" color="text.secondary" sx={{ fontSize: "0.7rem" }}>
             {t("title")}
           </Typography>
         </Box>
       </Stack>
 
-      {/* Social Links */}
       <Stack direction="row" justifyContent="center" spacing={0.3} mb={1.5}>
         {socialLinks.map((link, index) => (
           <Tooltip key={index} title={link.tooltip}>
@@ -136,9 +112,7 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
         ))}
       </Stack>
 
-      {/* Controls */}
       <Stack spacing={1}>
-        {/* Theme Toggle */}
         <FormControlLabel
           control={
             <Switch
@@ -185,8 +159,7 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
                 },
                 "& .MuiSwitch-track": {
                   borderRadius: 12,
-                  backgroundColor:
-                    theme.palette.mode === "dark" ? "#39393D" : "#E9E9EA",
+                  backgroundColor: theme.palette.mode === "dark" ? "#39393D" : "#E9E9EA",
                   opacity: 1,
                   transition: theme.transitions.create(["background-color"], {
                     duration: 500,
@@ -204,7 +177,6 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
           sx={{ m: 0, justifyContent: "space-between" }}
         />
 
-        {/* Language Toggle */}
         <Box
           onClick={toggleLanguage}
           sx={{
@@ -227,10 +199,7 @@ const SidebarHeader = ({ onThemeChange, isDarkMode }: Props) => {
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.3 }}>
             <Language sx={{ fontSize: 12 }} />
-            <Typography
-              variant="body2"
-              sx={{ fontSize: "0.6rem", fontWeight: 600 }}
-            >
+            <Typography variant="body2" sx={{ fontSize: "0.6rem", fontWeight: 600 }}>
               {i18n.language.toUpperCase()}
             </Typography>
           </Box>

@@ -36,27 +36,24 @@ declare module "@mui/material/Chip" {
     brown: true;
   }
 }
-//NOTE Create Custom Theme
-const { palette } = createTheme();
-
-// Color palette for modern design
 const colors = {
   primary: {
-    main: "#2563eb", // Modern blue
+    main: "#2563eb",
     light: "#3b82f6",
     dark: "#1d4ed8",
     contrastText: "#ffffff",
   },
   secondary: {
-    main: "#7c3aed", // Modern purple
+    main: "#7c3aed",
     light: "#8b5cf6",
     dark: "#6d28d9",
     contrastText: "#ffffff",
   },
   accent: {
-    main: "#06b6d4", // Cyan accent
+    main: "#06b6d4",
     light: "#22d3ee",
     dark: "#0891b2",
+    contrastText: "#ffffff",
   },
   gradient: {
     primary: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
@@ -65,13 +62,14 @@ const colors = {
   },
 };
 
-// Light theme
 const lightTheme = createTheme({
   direction: "rtl",
   palette: {
     mode: "light",
     primary: colors.primary,
     secondary: colors.secondary,
+    accent: colors.accent,
+    gradient: colors.gradient,
     background: {
       default: "#f8fafc",
       paper: "#ffffff",
@@ -212,13 +210,14 @@ const lightTheme = createTheme({
   },
 });
 
-// Dark theme
 const darkTheme = createTheme({
   direction: "rtl",
   palette: {
     mode: "dark",
     primary: colors.primary,
     secondary: colors.secondary,
+    accent: colors.accent,
+    gradient: colors.gradient,
     background: {
       default: "#0f172a",
       paper: "#1e293b",

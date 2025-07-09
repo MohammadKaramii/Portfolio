@@ -1,58 +1,106 @@
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Chip,
-  Stack,
-  useTheme,
-} from "@mui/material";
+import { Box, Container, Typography, Grid, Card, CardContent, Chip, Stack, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 
 const Skills = () => {
   const { t } = useTranslation();
+
   const theme = useTheme();
 
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: t("skills.frontend-title"),
       skills: [
-        { name: "React", years: "3+ years" },
-        { name: "TypeScript", years: "2+ years" },
-        { name: "Next.js", years: "2+ years" },
-        { name: "JavaScript (ES6+)", years: "4+ years" },
-        { name: "HTML5 & CSS3", years: "5+ years" },
-        { name: "Material-UI", years: "2+ years" },
-        { name: "Tailwind CSS", years: "1+ years" },
-        { name: "Sass/SCSS", years: "2+ years" },
+        {
+          name: "React",
+          years: t("skills.plus-three") + " " + t("skills.years"),
+        },
+        {
+          name: "TypeScript",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
+        {
+          name: "Next.js",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
+        {
+          name: "JavaScript (ES6+)",
+          years: t("skills.plus-four") + " " + t("skills.years"),
+        },
+        {
+          name: "HTML5 & CSS3",
+          years: t("skills.plus-five") + " " + t("skills.years"),
+        },
+        {
+          name: "Material-UI",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
+        {
+          name: "Tailwind CSS",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
+        {
+          name: "Sass/SCSS",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
       ],
       color: "primary",
     },
     {
-      title: "Tools & Technologies",
+      title: t("skills.tools-technologies"),
       skills: [
-        { name: "Git & GitHub", years: "3+ years" },
-        { name: "Redux Toolkit", years: "2+ years" },
-        { name: "Vite", years: "1+ years" },
-        { name: "Webpack", years: "1+ years" },
-        { name: "React Query", years: "1+ years" },
-        { name: "Zustand", years: "1+ years" },
+        {
+          name: "Git & GitHub",
+          years: t("skills.plus-three") + " " + t("skills.years"),
+        },
+        {
+          name: "Redux Toolkit",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
+        { name: "Vite", years: t("skills.plus-one") + " " + t("skills.years") },
+        {
+          name: "Webpack",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
+        {
+          name: "React Query",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
+        {
+          name: "Zustand",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
       ],
       color: "secondary",
     },
     {
-      title: "Development Concepts",
+      title: t("skills.development-concepts"),
       skills: [
-        { name: "Responsive Design", years: "4+ years" },
-        { name: "REST APIs", years: "3+ years" },
-        { name: "Performance Optimization", years: "2+ years" },
-        { name: "Testing (Jest/Vitest)", years: "1+ years" },
-        { name: "Progressive Web Apps", years: "1+ years" },
-        { name: "Agile Development", years: "2+ years" },
+        {
+          name: "Responsive Design",
+          years: t("skills.plus-four") + " " + t("skills.years"),
+        },
+        {
+          name: "REST APIs",
+          years: t("skills.plus-three") + " " + t("skills.years"),
+        },
+        {
+          name: "Performance Optimization",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
+        {
+          name: "Testing (Jest/Vitest)",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
+        {
+          name: "Progressive Web Apps",
+          years: t("skills.plus-one") + " " + t("skills.years"),
+        },
+        {
+          name: "Agile Development",
+          years: t("skills.plus-two") + " " + t("skills.years"),
+        },
       ],
       color: "info",
     },
@@ -75,11 +123,7 @@ const Skills = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -104,7 +148,7 @@ const Skills = () => {
                 mx: "auto",
               }}
             >
-              Technologies and tools I work with to bring ideas to life
+              {t("skills.subtitle")}
             </Typography>
           </motion.div>
 
@@ -163,9 +207,7 @@ const Skills = () => {
                                 p: 2,
                                 borderRadius: 2,
                                 background:
-                                  theme.palette.mode === "dark"
-                                    ? "rgba(255, 255, 255, 0.05)"
-                                    : "rgba(0, 0, 0, 0.03)",
+                                  theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.03)",
                                 border: `1px solid ${theme.palette.divider}`,
                                 transition: "all 0.3s ease",
                                 "&:hover": {

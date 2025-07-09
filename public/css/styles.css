@@ -7,8 +7,8 @@ body {
 
 @font-face {
   font-family: "vazir";
-   src: url("../fonts/Vazir.eot");
-   src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+  src: url("../fonts/Vazir.eot");
+  src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Vazir.woff2") format("woff2"),
     url("../fonts/Vazir.woff") format("woff"),
     url("../fonts/Vazir.ttf") format("truetype");
@@ -22,13 +22,12 @@ body {
   src: url("../fonts/Tanha.eot");
   src: url("../fonts/Tanha.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Tanha.woff2") format("woff2"),
-    url("../fonts/Tahna.woff") format("woff"),
+    url("../fonts/Tanha.woff") format("woff"),
     url("../fonts/Tanha.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-
 
 @font-face {
   font-family: "roboto";
@@ -42,21 +41,19 @@ body {
   font-display: swap;
 }
 
-
 @font-face {
-  font-family: 'Dancing Script';
-  src: url('DancingScript-Regular.eot');
-  src: url('DancingScript-Regular.eot?#iefix') format('embedded-opentype'),
-      url('DancingScript-Regular.woff2') format('woff2'),
-      url('DancingScript-Regular.woff') format('woff'),
-      url('DancingScript-Regular.ttf') format('truetype');
+  font-family: "Dancing Script";
+  src: url("../fonts/DancingScript-Regular.eot");
+  src: url("../fonts/DancingScript-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/DancingScript-Regular.woff2") format("woff2"),
+    url("../fonts/DancingScript-Regular.woff") format("woff"),
+    url("../fonts/DancingScript-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-
-
-.MuiCart-root ::-webkit-scrollbar{
+.MuiCart-root ::-webkit-scrollbar {
   display: none;
 }

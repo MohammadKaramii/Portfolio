@@ -1,21 +1,21 @@
+import { GitHub, Launch } from "@mui/icons-material";
 import {
   Box,
-  Container,
-  Typography,
-  Grid,
+  Button,
   Card,
   CardContent,
   CardMedia,
-  Button,
   Chip,
-  Stack,
-  useTheme,
+  Container,
+  Grid,
   IconButton,
+  Stack,
+  Typography,
+  useTheme,
 } from "@mui/material";
-import { Launch, GitHub } from "@mui/icons-material";
-import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
   const { t } = useTranslation();
@@ -23,31 +23,28 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Music Web App",
-      description:
-        "A responsive music streaming web application with modern UI design, playlist management, and audio controls.",
-      image: "/src/assets/Projects/MusicWebApp.jpg",
-      technologies: ["React", "Material-UI", "JavaScript"],
-      demoUrl: "#",
-      codeUrl: "#",
+      title: t("projects.musicWebApp.title"),
+      description: t("projects.musicWebApp.description"),
+      image: "/MusicWebApp.jpg",
+      technologies: ["TypeScript", "React", "NextJs", "TailwindCSS", "ReactQuery", "Zustand"],
+      demoUrl: "https://music-web-app-2024.vercel.app/",
+      codeUrl: "https://github.com/MohammadKaramii/Music-web-app",
     },
     {
-      title: "Twitter Clone",
-      description:
-        "Social media platform replica with user authentication, posting features, and real-time updates.",
-      image: "/src/assets/Projects/TwitterClone.jpg",
-      technologies: ["React", "Firebase", "CSS3"],
-      demoUrl: "#",
-      codeUrl: "#",
+      title: t("projects.twitterClone.title"),
+      description: t("projects.twitterClone.description"),
+      image: "/TwitterClone.jpg",
+      technologies: ["React", "TypeScript", "TailwindCSS", "NextJs", "NextAuth"],
+      demoUrl: "https://twitter-clone2023.vercel.app/",
+      codeUrl: "https://github.com/MohammadKaramii/Twitter-clone",
     },
     {
-      title: "Splitwise App",
-      description:
-        "Expense sharing application for groups to track shared expenses and settle debts easily.",
-      image: "/src/assets/Projects/Splitwise.jpg",
-      technologies: ["React", "JavaScript", "Material-UI"],
-      demoUrl: "#",
-      codeUrl: "#",
+      title: t("projects.splitwiseApp.title"),
+      description: t("projects.splitwiseApp.description"),
+      image: "/Splitwise.jpg",
+      technologies: ["React", "TypeScript", "Redux", "Supabase", "CSS"],
+      demoUrl: "https://splitwise2024.vercel.app/",
+      codeUrl: "https://github.com/MohammadKaramii/Splitwise-clone",
     },
   ];
 
@@ -68,11 +65,7 @@ const Projects = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -97,8 +90,7 @@ const Projects = () => {
                 mx: "auto",
               }}
             >
-              Here are some of my recent projects that showcase my development
-              skills
+              {t("projects.subtitle")}
             </Typography>
           </motion.div>
 
@@ -164,17 +156,19 @@ const Projects = () => {
                       </Typography>
 
                       <Box sx={{ mb: 3 }}>
-                        <Typography
-                          variant="subtitle2"
-                          sx={{ mb: 1, fontWeight: 600 }}
-                        >
-                          Technologies:
+                        <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
+                          {t("projects.technologies")}
                         </Typography>
                         <Stack
                           direction="row"
                           spacing={1}
                           flexWrap="wrap"
-                          sx={{ gap: 0.5 }}
+                          sx={{
+                            gap: 0.5,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
                         >
                           {project.technologies.map((tech, techIndex) => (
                             <Chip
@@ -201,11 +195,9 @@ const Projects = () => {
                           startIcon={<Launch />}
                           size="small"
                           sx={{
-                            background:
-                              "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                             "&:hover": {
-                              background:
-                                "linear-gradient(135deg, #5a6fd8 0%, #6d4190 100%)",
+                              background: "linear-gradient(135deg, #5a6fd8 0%, #6d4190 100%)",
                             },
                           }}
                         >

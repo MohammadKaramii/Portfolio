@@ -1,6 +1,5 @@
 :root {
-  font-family: tanha, vazir, roboto, system-ui, Avenir, Helvetica, Arial,
-    sans-serif;
+  font-family: tanha, vazir, roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -87,7 +86,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Hide global scrollbars - custom scrollbar only on main content */
 ::-webkit-scrollbar {
   display: none;
 }
@@ -97,7 +95,6 @@ button:focus-visible {
   scrollbar-width: none;
 }
 
-/* Responsive breakpoints */
 @media (max-width: 600px) {
   body {
     font-size: 14px;
@@ -124,7 +121,6 @@ button:focus-visible {
   }
 }
 
-/* Theme-specific styles */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -9,6 +9,8 @@ export interface MainContextType {
   setDirection: Dispatch<SetStateAction<"ltr" | "rtl">>;
   mode: string;
   setMode: Dispatch<SetStateAction<string>>;
+  handleThemeChange: () => void;
+  handleChangeLanguage: () => void;
 }
 
 const MainContext = createContext<MainContextType>({
@@ -20,6 +22,8 @@ const MainContext = createContext<MainContextType>({
   setDirection: () => {},
   mode: "light",
   setMode: () => {},
+  handleThemeChange: () => {},
+  handleChangeLanguage: () => {},
 });
 
 export default MainContext;

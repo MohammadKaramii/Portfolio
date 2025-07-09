@@ -1,12 +1,4 @@
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Box,
-  useTheme,
-} from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box, useTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { useTabsData } from "../../constants/tabsData";
@@ -78,10 +70,7 @@ const SidebarTabs = () => {
                   },
                 },
                 "&:hover": {
-                  backgroundColor:
-                    theme.palette.mode === "dark"
-                      ? "rgba(255, 255, 255, 0.05)"
-                      : "rgba(0, 0, 0, 0.04)",
+                  backgroundColor: theme.palette.mode === "dark" ? "rgba(255, 255, 255, 0.05)" : "rgba(0, 0, 0, 0.04)",
                   transform: "translateX(2px)",
                 },
                 "&::before": {

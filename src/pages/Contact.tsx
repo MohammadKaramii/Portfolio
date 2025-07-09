@@ -1,29 +1,22 @@
+import { Email, GitHub, LinkedIn, LocationOn, Phone, Send } from "@mui/icons-material";
 import {
   Box,
-  Container,
-  Typography,
-  Grid,
+  Button,
   Card,
   CardContent,
-  TextField,
-  Button,
-  Stack,
+  Container,
+  Grid,
   IconButton,
-  useTheme,
   Paper,
+  Stack,
+  TextField,
+  Typography,
+  useTheme,
 } from "@mui/material";
-import {
-  Email,
-  Phone,
-  LocationOn,
-  Send,
-  GitHub,
-  LinkedIn,
-} from "@mui/icons-material";
-import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -38,8 +31,21 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
+
+    const subject = encodeURIComponent(formData.subject || "Message from Portfolio Contact Form");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` + `Email: ${formData.email}\n\n` + `Message:\n${formData.message}`,
+    );
+
+    const mailtoLink = `mailto:karamiwp@gmail.com?subject=${subject}&body=${body}`;
+    window.open(mailtoLink, "_blank");
+
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,19 +58,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Email />,
-      title: "Email",
-      value: t("email"),
-      link: `mailto:${t("email")}`,
+      title: t("contact.form.email"),
+      value: "karamiwp@gmail.com",
+      link: `mailto:karamiwp@gmail.com`,
     },
     {
       icon: <Phone />,
-      title: "Phone",
+      title: t("contact.form.phone"),
       value: t("phone"),
       link: `tel:${t("phone")}`,
     },
     {
       icon: <LocationOn />,
-      title: "Location",
+      title: t("contact.form.location"),
       value: t("location"),
       link: "#",
     },
@@ -101,11 +107,7 @@ const Contact = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Typography
               variant="h2"
               sx={{
@@ -135,7 +137,6 @@ const Contact = () => {
           </motion.div>
 
           <Grid container spacing={4}>
-            {/* Contact Information */}
             <Grid item xs={12} md={4}>
               <Stack spacing={3}>
                 {contactInfo.map((info, index) => (
@@ -182,10 +183,7 @@ const Contact = () => {
                         {info.icon}
                       </Box>
                       <Box>
-                        <Typography
-                          variant="subtitle1"
-                          sx={{ fontWeight: 600 }}
-                        >
+                        <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                           {info.title}
                         </Typography>
                         <Typography
@@ -200,16 +198,15 @@ const Contact = () => {
                   </motion.div>
                 ))}
 
-                {/* Social Links */}
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                 >
                   <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-                    Follow Me
+                    {t("contact.form.follow-me")}
                   </Typography>
-                  <Stack direction="row" spacing={3} sx={{ gap: 2 }}>
+                  <Stack direction="row" sx={{ gap: 2 }}>
                     {socialLinks.map((social, index) => (
                       <IconButton
                         key={index}
@@ -235,7 +232,6 @@ const Contact = () => {
               </Stack>
             </Grid>
 
-            {/* Contact Form */}
             <Grid item xs={12} md={8}>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
@@ -253,7 +249,7 @@ const Contact = () => {
                 >
                   <CardContent sx={{ p: 4 }}>
                     <Typography variant="h5" sx={{ mb: 3, fontWeight: 600 }}>
-                      Send a Message
+                      {t("contact.form.title")}
                     </Typography>
 
                     <form onSubmit={handleSubmit}>
@@ -310,11 +306,9 @@ const Contact = () => {
                             sx={{
                               px: 4,
                               py: 1.5,
-                              background:
-                                "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                               "&:hover": {
-                                background:
-                                  "linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)",
+                                background: "linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)",
                                 transform: "translateY(-2px)",
                               },
                             }}

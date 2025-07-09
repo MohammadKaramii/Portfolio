@@ -7,11 +7,11 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: false, // Disable console logs
+    debug: false,
     fallbackLng: "fa",
     interpolation: {
       escapeValue: false,
     },
   });
 
-  export default i18n;
+export default i18n;

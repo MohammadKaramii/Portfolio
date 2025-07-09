@@ -13,11 +13,10 @@ const Sidebar = () => {
     setIsDarkMode(newMode);
     localStorage.setItem("theme", newMode ? "dark" : "light");
 
-    // Dispatch custom event for theme change
     window.dispatchEvent(
       new CustomEvent("themeChange", {
         detail: { theme: newMode ? "dark" : "light" },
-      })
+      }),
     );
   };
 
@@ -29,10 +28,7 @@ const Sidebar = () => {
         flexDirection: "column",
       }}
     >
-      <SidebarHeader
-        onThemeChange={handleThemeChange}
-        isDarkMode={isDarkMode}
-      />
+      <SidebarHeader onThemeChange={handleThemeChange} isDarkMode={isDarkMode} />
       <SidebarTabs />
     </Box>
   );

@@ -1,22 +1,5 @@
-import {
-  Box,
-  Typography,
-  Button,
-  Stack,
-  Container,
-  useTheme,
-  alpha,
-  Chip,
-  IconButton,
-} from "@mui/material";
-import {
-  GitHub,
-  LinkedIn,
-  Email,
-  KeyboardArrowDown,
-  Download,
-  Work,
-} from "@mui/icons-material";
+import { Box, Typography, Button, Stack, Container, useTheme, alpha, Chip, IconButton } from "@mui/material";
+import { GitHub, LinkedIn, Email, KeyboardArrowDown, Download, Work } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -47,17 +30,14 @@ const Home = () => {
   ];
 
   const scrollToNext = () => {
-    // Navigate to the next page (About page = index 1)
     if (pageNumber === 0) {
-      // Currently on Home page - navigate to About page
       handlePageNumber({} as React.SyntheticEvent, 1);
     }
   };
 
   const handleDownloadCV = () => {
-    // Create a link element and trigger download
     const link = document.createElement("a");
-    link.href = "/cv.pdf"; // Put your CV file in public/cv.pdf
+    link.href = "/cv.pdf";
     link.download = "Mohammad_Karami_CV.pdf";
     document.body.appendChild(link);
     link.click();
@@ -65,14 +45,12 @@ const Home = () => {
   };
 
   const handleHireMe = () => {
-    // Scroll to contact section or open email
     const contactElement = document.getElementById("contact");
     if (contactElement) {
       contactElement.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Fallback: open email
       window.location.href = `mailto:${t(
-        "email"
+        "email",
       )}?subject=Work Opportunity&body=Hi Mohammad, I'm interested in discussing a work opportunity with you.`;
     }
   };
@@ -96,7 +74,6 @@ const Home = () => {
           overflow: "hidden",
         }}
       >
-        {/* Animated background elements */}
         <Box
           sx={{
             position: "absolute",
@@ -116,7 +93,6 @@ const Home = () => {
         />
 
         <Container maxWidth="lg" sx={{ zIndex: 1 }}>
-          {/* Content Section - Centered */}
           <Box sx={{ textAlign: "center" }}>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -140,8 +116,7 @@ const Home = () => {
                   fontSize: { xs: "2.5rem", md: "4rem" },
                   fontWeight: 800,
                   mb: 2,
-                  background:
-                    "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -177,13 +152,7 @@ const Home = () => {
                 {t("home.bio")}
               </Typography>
 
-              {/* Social Links */}
-              <Stack
-                direction="row"
-                spacing={2}
-                justifyContent="center"
-                sx={{ mb: 4 }}
-              >
+              <Stack direction="row" spacing={2} justifyContent="center" sx={{ mb: 4 }}>
                 {socialLinks.map((link, index) => (
                   <motion.div
                     key={index}
@@ -213,7 +182,6 @@ const Home = () => {
                 ))}
               </Stack>
 
-              {/* Action Buttons */}
               <Stack
                 direction={{ xs: "column", sm: "row" }}
                 spacing={{ xs: 3, sm: 6 }}
@@ -229,8 +197,7 @@ const Home = () => {
                   size="large"
                   onClick={handleDownloadCV}
                   sx={{
-                    background:
-                      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
                     color: "white",
                     px: 5,
                     py: 2,
@@ -241,8 +208,7 @@ const Home = () => {
                     alignItems: "center",
                     gap: 1.5,
                     "&:hover": {
-                      background:
-                        "linear-gradient(135deg, #5a6fd8 0%, #6d4190 100%)",
+                      background: "linear-gradient(135deg, #5a6fd8 0%, #6d4190 100%)",
                       transform: "translateY(-2px)",
                     },
                     transition: "all 0.3s ease",
@@ -282,18 +248,13 @@ const Home = () => {
                 </Button>
               </Stack>
 
-              {/* Skills Badge */}
               <Box sx={{ mb: 4 }}>
                 <Chip
                   label={t("home.available")}
                   sx={{
-                    backgroundColor:
-                      theme.palette.mode === "dark" ? "#1e3a33" : "#e6f7ff",
-                    color:
-                      theme.palette.mode === "dark" ? "#00ff88" : "#0066cc",
-                    border: `2px solid ${
-                      theme.palette.mode === "dark" ? "#00ff88" : "#0066cc"
-                    }`,
+                    backgroundColor: theme.palette.mode === "dark" ? "#a7f3d0" : "#166534",
+                    color: theme.palette.mode === "dark" ? "#f8fafc" : "#ffffff",
+                    border: `2px solid ${theme.palette.mode === "dark" ? "#667eea" : "#4f46e5"}`,
                     fontWeight: 700,
                     px: 3,
                     py: 1.5,
@@ -309,7 +270,6 @@ const Home = () => {
           </Box>
         </Container>
 
-        {/* Navigate to Next Page Arrow */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
